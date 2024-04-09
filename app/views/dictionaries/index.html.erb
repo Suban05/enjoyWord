@@ -1,0 +1,12 @@
+<div class="w-full">
+  <div id="flash">
+    <%= render 'shared/flash' %>
+  </div>
+
+  <%= render 'header' %>
+    <%= turbo_frame_tag 'list' do %>
+      <div id="dictionaries" class="min-w-full">
+        <%= render @dictionaries %>
+      </div>
+    <% end %>
+</div>

@@ -1,0 +1,2 @@
+<%= turbo_stream.replace Dictionary.new, partial: 'header' %>
+<%= turbo_stream.append 'list', render('dictionary', dictionary: @dictionary) %>

@@ -1,0 +1,7 @@
+<% flash.each do |message_type, message| %>
+    <div class="bg-<%= message_type %>-50 text-<%= message_type %>-500 px-3 py-2 font-medium rounded-lg mt-3">
+        <ul>
+            <li><%= message %></li>
+        </ul>
+    </div>
+<% end %>

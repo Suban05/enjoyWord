@@ -1,0 +1,11 @@
+en:
+  dictionary:
+    create:
+      success: New dictionary created successfully
+    destroy:
+      success: Dictionary deleted successfully
+    index:
+      dictionaries: Dictionaries
+      new_dictionary: New dictionary
+    update:
+      success: Dictionary updated successfully

@@ -19,7 +19,7 @@ module Authentication
     session[:user_id] = user.id
   end
 
-  def logout(user)
+  def logout
     Current.user = nil
     reset_session
   end
