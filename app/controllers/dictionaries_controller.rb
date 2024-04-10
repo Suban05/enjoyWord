@@ -1,6 +1,6 @@
 class DictionariesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_dictionary, only: [:edit, :update, :show, :destroy]
+  before_action :set_dictionary, only: %i[edit update show destroy]
 
   def index
     @dictionaries = current_user.dictionaries.all

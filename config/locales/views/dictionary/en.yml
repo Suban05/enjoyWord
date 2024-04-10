@@ -2,6 +2,10 @@ en:
   dictionary:
     create:
       success: New dictionary created successfully
+    edit:
+      action: Edit this dictionary
+    show:
+      action: Show this dictionary
     destroy:
       success: Dictionary deleted successfully
     index:

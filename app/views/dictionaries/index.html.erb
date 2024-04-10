@@ -1,10 +1,8 @@
-<div class="w-full">
-  <div id="flash">
-    <%= render 'shared/flash' %>
-  </div>
-
-  <%= render 'header' %>
-    <%= turbo_frame_tag 'list' do %>
-      <%= render 'shared/list', list: @dictionaries %>
-    <% end %>
-</div>
+<%= render 'shared/list',
+  list_id: 'dictionaries',
+  list: @dictionaries,
+  list_title_path: 'dictionary.index.dictionaries',
+  create_button_title_path: 'dictionary.index.new_dictionary',
+  create_button_link: new_dictionary_path,
+  new_object: Dictionary.new
+%>

@@ -1,4 +1,18 @@
-<div class="min-w-full">
-    <%= render list %>
-</div>
-
+<%= turbo_frame_tag list_id do %>
+  <div class="w-full">
+    <div id="flash">
+        <%= render 'shared/flash' %>
+    </div>
+    <%= render 'shared/header',
+        create_button_title_path:,
+        create_button_link:,
+        new_object:,
+        list_title_path:
+    %>
+    <%= turbo_frame_tag 'list' do %>
+        <div class="min-w-full">
+            <%= render list %>
+        </div>
+    <% end %>
+  </div>
+<% end %>

@@ -1,7 +1,0 @@
-<%= turbo_frame_tag Dictionary.new do %>
-
-<div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl"><%= t('dictionary.index.dictionaries') %></h1>
-    <%= link_to t('dictionary.index.new_dictionary'), new_dictionary_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
-</div>
-<% end %>
