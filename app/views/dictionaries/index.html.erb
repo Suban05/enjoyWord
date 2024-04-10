@@ -5,8 +5,6 @@
 
   <%= render 'header' %>
     <%= turbo_frame_tag 'list' do %>
-      <div id="dictionaries" class="min-w-full">
-        <%= render @dictionaries %>
-      </div>
+      <%= render 'shared/list', list: @dictionaries %>
     <% end %>
 </div>
