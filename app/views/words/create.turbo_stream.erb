@@ -1,0 +1,11 @@
+<%= turbo_stream.replace Word.new,
+    partial: 'shared/header',
+    locals: {
+        list_title_path: 'word.index.words',
+        create_button_title_path: 'word.index.new_word',
+        create_button_link: new_word_path,
+        new_object: Word.new
+     }
+%>
+<%= turbo_stream.append 'list', render('word', word: @word) %>
+<%= prepend_flash %>

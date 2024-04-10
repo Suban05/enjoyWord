@@ -1,0 +1,15 @@
+<%= turbo_frame_tag word do %>
+  <p class="my-5">
+    <%= word.content %>
+  </p>
+
+  <p class="my-5">
+    <%= word.translation %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to t('word.show.action'), word, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium", data: { turbo_frame: '_top' } %>
+    <%= link_to t('word.edit.action'), edit_word_path(word), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+<% end %>

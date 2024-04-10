@@ -1,0 +1,15 @@
+en:
+  word:
+    create:
+      success: New word created successfully
+    edit:
+      action: Edit this word
+    show:
+      action: Show this word
+    destroy:
+      success: Word deleted successfully
+    index:
+      words: Words
+      new_word: New word
+    update:
+      success: Word updated successfully

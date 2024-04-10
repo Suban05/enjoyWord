@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'users#index'
+  root 'dictionaries#index'
   get 'signup', to: 'users#new'
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :users
   resources :dictionaries
+  resources :words
 end
