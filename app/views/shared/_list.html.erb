@@ -9,10 +9,12 @@
         new_object:,
         list_title_path:
     %>
-    <%= turbo_frame_tag 'list' do %>
-        <div class="min-w-full">
+    <div class="mt-4">
+      <ul class="space-y-4 mb-10">
+        <%= turbo_frame_tag 'list' do %>
             <%= render list %>
-        </div>
-    <% end %>
+        <% end %>
+      </ul>
+    </div>
   </div>
 <% end %>
