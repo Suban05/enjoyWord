@@ -3,7 +3,9 @@
 one:
   name: MyString
   translation_type: 1
+  user: john
 
 two:
   name: MyString
   translation_type: 1
+  user: john

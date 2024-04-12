@@ -1,38 +1,32 @@
 require "test_helper"
 
 class DictionariesControllerTest < ActionDispatch::IntegrationTest
+  setup do
+    @user = users(:john)
+    @dict = dictionaries(:one)
+  end
+
   test "should get index" do
-    get dictionaries_index_url
+    log_in_as(@user)
+    get dictionaries_path
     assert_response :success
   end
 
   test "should get new" do
-    get dictionaries_new_url
-    assert_response :success
-  end
-
-  test "should get create" do
-    get dictionaries_create_url
+    log_in_as(@user)
+    get new_dictionary_path
     assert_response :success
   end
 
   test "should get edit" do
-    get dictionaries_edit_url
-    assert_response :success
-  end
-
-  test "should get update" do
-    get dictionaries_update_url
+    log_in_as(@user)
+    get edit_dictionary_path(@dict)
     assert_response :success
   end
 
   test "should get show" do
-    get dictionaries_show_url
-    assert_response :success
-  end
-
-  test "should get destroy" do
-    get dictionaries_destroy_url
+    log_in_as(@user)
+    get dictionary_path(@dict)
     assert_response :success
   end
 end
