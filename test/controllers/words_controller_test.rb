@@ -1,38 +1,33 @@
 require "test_helper"
 
 class WordsControllerTest < ActionDispatch::IntegrationTest
+  setup do
+    @user = users(:john)
+    @word = words(:one)
+    @dict = dictionaries(:one)
+  end
+
   test "should get index" do
-    get words_index_url
+    log_in_as(@user)
+    get words_path(dictionary_id: @dict.id)
     assert_response :success
   end
 
   test "should get new" do
-    get words_new_url
-    assert_response :success
-  end
-
-  test "should get create" do
-    get words_create_url
+    log_in_as(@user)
+    get new_word_path(dictionary_id: @dict.id)
     assert_response :success
   end
 
   test "should get edit" do
-    get words_edit_url
-    assert_response :success
-  end
-
-  test "should get update" do
-    get words_update_url
+    log_in_as(@user)
+    get edit_word_path(@word)
     assert_response :success
   end
 
   test "should get show" do
-    get words_show_url
-    assert_response :success
-  end
-
-  test "should get destroy" do
-    get words_destroy_url
+    log_in_as(@user)
+    get word_path(@word)
     assert_response :success
   end
 end
