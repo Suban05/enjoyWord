@@ -13,3 +13,4 @@ en:
       new_dictionary: New dictionary
     update:
       success: Dictionary updated successfully
+    back_to_dictionaries: Back to dictionaries
