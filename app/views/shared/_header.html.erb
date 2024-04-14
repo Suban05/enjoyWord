@@ -1,6 +1,6 @@
 <%= turbo_frame_tag new_object do %>
     <div class="flex justify-between items-center">
-        <h1 class="font-bold text-4xl"><%= t(list_title_path) %></h1>
-        <%= link_to t(create_button_title_path), create_button_link, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+        <h1 class="font-bold text-4xl"><%= list_title_path %></h1>
+        <%= link_to create_button_title_path, create_button_link, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
     </div>
 <% end %>

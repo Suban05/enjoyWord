@@ -1,8 +1,8 @@
 <%= turbo_stream.replace Dictionary.new,
     partial: 'shared/header',
     locals: {
-        list_title_path: 'dictionary.index.dictionaries',
-        create_button_title_path: 'dictionary.index.new_dictionary',
+        list_title_path: t('dictionary.index.dictionaries'),
+        create_button_title_path: t('dictionary.index.new_dictionary'),
         create_button_link: new_dictionary_path,
         new_object: Dictionary.new
      }
