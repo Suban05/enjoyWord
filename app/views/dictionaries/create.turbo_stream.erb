@@ -7,5 +7,5 @@
         new_object: Dictionary.new
      }
 %>
-<%= turbo_stream.append 'list', render('dictionary', dictionary: @dictionary) %>
+<%= turbo_stream.append 'list', @dictionary %>
 <%= prepend_flash %>

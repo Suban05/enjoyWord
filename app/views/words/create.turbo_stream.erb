@@ -7,5 +7,5 @@
         new_object: Word.new
      }
 %>
-<%= turbo_stream.append 'list', render('word', word: @word) %>
+<%= turbo_stream.append 'list', @word %>
 <%= prepend_flash %>
