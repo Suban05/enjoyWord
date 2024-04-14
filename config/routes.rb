@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   resources :users
   resources :dictionaries
   resources :words
+  resources :examples
 end
