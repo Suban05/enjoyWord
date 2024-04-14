@@ -3,7 +3,7 @@
     locals: {
         list_title_path: 'word.index.words',
         create_button_title_path: 'word.index.new_word',
-        create_button_link: new_word_path,
+        create_button_link: new_word_path(dictionary_id: @word.dictionary_id),
         new_object: Word.new
      }
 %>
