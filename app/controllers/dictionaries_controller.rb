@@ -7,7 +7,7 @@ class DictionariesController < ApplicationController
   end
 
   def new
-    @dictionary = current_user.dictionaries.new
+    @dictionary = current_user.dictionaries.build
   end
 
   def create

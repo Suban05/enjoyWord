@@ -8,7 +8,7 @@ class WordsController < ApplicationController
   end
 
   def new
-    @word = @dictionary.words.new
+    @word = @dictionary.words.build
   end
 
   def create
