@@ -1,4 +1,6 @@
-<div>
-  <h1 class="font-bold text-4xl">Words#show</h1>
-  <p>Find me in app/views/words/show.html.erb</p>
+<div class="mx-auto">
+  <h1 class="font-bold text-4xl"><%= @word.content %></h1>
+  <p class="mt-4 mb-4"><%= @word.translation %></p>
+  <%= render 'shared/child_items', id: 'examples', src: examples_path(word_id: @word) %>
+  <%= link_to "Back to words", @word.dictionary, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
 </div>

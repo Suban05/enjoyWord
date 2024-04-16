@@ -1,0 +1,11 @@
+<%= turbo_stream.replace Example.new,
+    partial: 'shared/header',
+    locals: {
+        list_title_path: t('example.index.examples'),
+        create_button_title_path: t('example.index.new_word'),
+        create_button_link: new_example_path(word_id: @example.word_id),
+        new_object: Example.new
+     }
+%>
+<%= turbo_stream.append 'list', @example %>
+<%= prepend_flash %>

@@ -1,4 +1,8 @@
-<div>
-  <h1 class="font-bold text-4xl">Examples#index</h1>
-  <p>Find me in app/views/examples/index.html.erb</p>
-</div>
+<%= render 'shared/list',
+  list_id: 'examples',
+  list_title_path: t('example.index.examples'),
+  list: @examples,
+  create_button_title_path: t('example.index.new_example'),
+  create_button_link: new_example_path(word_id: @word),
+  new_object: Example.new
+%>
