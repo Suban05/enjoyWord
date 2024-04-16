@@ -1,7 +1,4 @@
   <div class="mx-auto">
     <%= render 'shared/child_items', id: 'words', src: words_path(dictionary_id: @dictionary) %>
-    <div class="inline-block ml-2">
-      <%= button_to "Destroy this dictionary", dictionary_path(@dictionary), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
-    </div>
-    <%= link_to "Back to dictionaries", dictionaries_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Back to dictionaries", dictionaries_path, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
   </div>
