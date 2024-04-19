@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   resources :dictionaries
   resources :words
   resources :examples
+  resources :word_loaders, only: [:new, :create]
 end
