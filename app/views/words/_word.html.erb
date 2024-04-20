@@ -5,7 +5,7 @@
                 <div class="w-full text-lg font-semibold"><%= word.content %></div>
                 <div class="w-full text-gray-500 dark:text-gray-400"><%= word.translation %></div>
             <% end %>
-            <%= render 'word_options', word: word %>
+            <%= render 'words/word_options', word: word %>
         <% end %>
     </li>
 <% end %>

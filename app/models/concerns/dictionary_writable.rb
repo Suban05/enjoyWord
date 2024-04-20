@@ -14,10 +14,14 @@ module DictionaryWritable
       second_language = language_mappings[languages.second.to_sym]
       regex = /(.+?#{first_language.word_template}.+?)\s*-\s*(.+#{second_language.word_template}.+)/
       word_pairs = words.scan(regex)
+      result = []
       word_pairs.each do |pair|
         word = dictionary.words.build(content: pair.first.strip, translation: pair.second.strip)
-        word.save
+        if word.save
+          result << word
+        end
       end
+      result
     end
 
     private
