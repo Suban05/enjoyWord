@@ -12,9 +12,10 @@ module DictionaryWritable
       languages = dictionary.translation_type.to_s.split('_')
       first_language = language_mappings[languages.first.to_sym]
       second_language = language_mappings[languages.second.to_sym]
-      word_pairs = words.scan(/(#{first_language.word_template})\s*-\s*(#{second_language.word_template})/)
+      regex = /(.+?#{first_language.word_template}.+?)\s*-\s*(.+#{second_language.word_template}.+)/
+      word_pairs = words.scan(regex)
       word_pairs.each do |pair|
-        word = dictionary.words.build(content: pair.first, translation: pair.second)
+        word = dictionary.words.build(content: pair.first.strip, translation: pair.second.strip)
         word.save
       end
     end

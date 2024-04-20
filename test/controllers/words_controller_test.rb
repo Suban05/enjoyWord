@@ -4,7 +4,7 @@ class WordsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @user = users(:john)
     @word = words(:one)
-    @dict = dictionaries(:one)
+    @dict = dictionaries(:english_spanish)
   end
 
   test "should get index" do

@@ -3,7 +3,7 @@ require "test_helper"
 class DictionariesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @user = users(:john)
-    @dict = dictionaries(:one)
+    @dict = dictionaries(:english_spanish)
   end
 
   test "should get index" do

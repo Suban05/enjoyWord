@@ -3,9 +3,9 @@
 one:
   content: MyString
   translation: MyString
-  dictionary: one
+  dictionary: english_spanish
 
 two:
   content: MyString
   translation: MyString
-  dictionary: two
+  dictionary: english_spanish
