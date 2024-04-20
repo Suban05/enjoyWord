@@ -112,4 +112,22 @@ class WordLoadersControllerTest < ActionDispatch::IntegrationTest
 
     assert_not @english_spanish.words.find_by(content: 'bored')
   end
+
+  test "shouldn't write any words if errors were" do
+    skip "It skipped because it didn't implement"
+    
+    log_in_as(@user)
+
+    words = <<~EOM
+    bored - скучающий
+    language - idioma
+    EOM
+
+    post word_loaders_path params: { words: words, dictionary_id: @english_spanish.id }
+
+    assert_redirected_to @english_spanish
+
+    assert_not @english_spanish.words.find_by(content: 'bored')
+    assert_not @english_spanish.words.find_by(content: 'language')
+  end
 end
