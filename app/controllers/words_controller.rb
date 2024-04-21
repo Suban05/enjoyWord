@@ -4,7 +4,7 @@ class WordsController < ApplicationController
   before_action :set_word, only: %i[edit update show destroy]
 
   def index
-    @words = @dictionary.words.all
+    @words = @dictionary.words.all.order(:created_at)
   end
 
   def new
