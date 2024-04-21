@@ -12,7 +12,7 @@ class WordLoadersController < ApplicationController
     if @words.count.positive?
       flash.now[:green] = "#{@words.count} words successfully loaded"
     else
-      flash.now[:red] = "#{@words.count} words loaded. Please, check your words."
+      flash.now[:red] = "#{@words.count} words loaded. Please, check your words"
     end
   end
 
