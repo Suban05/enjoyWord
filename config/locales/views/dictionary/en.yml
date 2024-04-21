@@ -3,14 +3,15 @@ en:
     create:
       success: New dictionary created successfully
     edit:
-      action: Edit this dictionary
+      action: Edit
     show:
-      action: Show this dictionary
+      action: Show
     destroy:
+      action: Delete
       success: Dictionary deleted successfully
     index:
       dictionaries: Dictionaries
       new_dictionary: New dictionary
     update:
       success: Dictionary updated successfully
-    back_to_dictionaries: Back to dictionaries
+    back_to_dictionaries: Back
