@@ -1,0 +1,16 @@
+en:
+  example:
+    create:
+      success: New example created successfully
+    edit:
+      action: Edit this example
+    show:
+      action: Show this example
+    destroy:
+      success: Example deleted successfully
+    index:
+      examples: Examples
+      new_example: New example
+    update:
+      success: Example updated successfully
+    back_to_examples: Back to examples
