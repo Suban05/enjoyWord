@@ -2,6 +2,9 @@
     <div class="flex justify-between items-center">
         <h1 class="font-bold text-4xl"><%= list_title_path %></h1>
         <div class="flex space-x-3">
+            <% if local_assigns[:search_form] %>
+                <%= render local_assigns[:search_form], locals: local_assigns[:search_params] %>
+            <% end %>
             <% if local_assigns[:load_words_button_link] %>
                 <%= link_to load_words_button_link, class: 'text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white' do %>
                     <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
