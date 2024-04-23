@@ -1,10 +1,13 @@
 class WordsController < ApplicationController
+  include WordsHelper
+  include WordSearchable
+
   before_action :authenticate_user!
-  before_action :set_dictionary, only: %i[index new]
+  before_action :set_dictionary, only: %i[index new create]
   before_action :set_word, only: %i[edit update show destroy]
+  before_action :set_search_params, only: %i[index create]
 
   def index
-    @q = @dictionary.words.ransack(params[:q])
     @words = @q.result(distinct: true).order(:created_at)
   end
 
@@ -43,7 +46,8 @@ class WordsController < ApplicationController
   private
 
   def set_dictionary
-    @dictionary = current_user.dictionaries.find_by(id: params[:dictionary_id])
+    id = params[:dictionary_id] || params[:word][:dictionary_id]
+    @dictionary = current_user.dictionaries.find_by(id:)
   end
 
   def set_word

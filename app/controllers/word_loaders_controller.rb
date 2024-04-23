@@ -1,13 +1,16 @@
 class WordLoadersController < ApplicationController
+  include WordsHelper
+  include WordSearchable
+
   before_action :authenticate_user!
   before_action :set_dictionary, only: %i[new create]
+  before_action :set_search_params, only: %i[create]
 
   def new
   end
 
   def create
     words = params[:words]
-    dictionary_id = params[:dictionary_id]
     @words = Dictionary.write_words(@dictionary, words)
     if @words.count.positive?
       flash.now[:green] = "#{@words.count} words successfully loaded"
