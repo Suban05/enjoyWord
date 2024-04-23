@@ -1,12 +1,7 @@
-<%= turbo_stream.replace Word.new,
-    partial: 'shared/header',
-    locals: {
+<%= show_header locals(
         list_title_path: @word.dictionary.name,
-        create_button_title_path: t('word.index.new_word'),
-        create_button_link: new_word_path(dictionary_id: @word.dictionary_id),
-        search_form: 'words/search_form',
-        new_object: Word.new
-     }
+        dictionary_id: @word.dictionary_id
+    )
 %>
 <%= turbo_stream.append 'list', @word %>
 <%= prepend_flash %>

@@ -1,10 +1,8 @@
 <%= render 'shared/list',
-  list_id: 'words',
-  list_title_path: @dictionary.name,
-  list: @words,
-  create_button_title_path: t('word.index.new_word'),
-  create_button_link: new_word_path(dictionary_id: @dictionary),
-  load_words_button_link: new_word_loader_path(dictionary_id: @dictionary),
-  search_form: 'words/search_form',
-  new_object: Word.new
+  locals(
+    list_id: 'words',
+    list_title_path: @dictionary.name,
+    list: @words,
+    dictionary_id: @dictionary
+  )
 %>

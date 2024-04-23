@@ -3,15 +3,8 @@
     <div id="flash">
         <%= render 'shared/flash' %>
     </div>
-    <%= render 'shared/header',
-        create_button_title_path:,
-        create_button_link:,
-        new_object:,
-        list_title_path:,
-        is_empty_list: list.empty?,
-        load_words_button_link: local_assigns[:load_words_button_link],
-        search_form: local_assigns[:search_form]
-    %>
+    <% local_assigns[:is_empty_list] = list.empty? %>
+    <%= render 'shared/header', local_assigns %>
     <div class="mt-4">
       <ul class="space-y-4 mb-10">
         <%= turbo_frame_tag 'list', class: local_assigns[:list_class] do %>
