@@ -1,6 +1,6 @@
 <%= turbo_frame_tag new_object do %>
     <div class="flex justify-between items-center flex-column flex-wrap">
-        <h1 class="font-bold text-4xl"><%= list_title_path %></h1>
+        <h1 class="font-bold text-4xl mb-1"><%= list_title_path %></h1>
         <div class="flex items-center justify-between">
             <% if local_assigns[:search_form] %>
                 <%= render local_assigns[:search_form], locals: local_assigns[:search_params] %>
