@@ -8,7 +8,8 @@
     <div class="mt-4">
       <ul class="space-y-4 mb-10">
         <%= turbo_frame_tag 'list', class: local_assigns[:list_class], data: { turbo_action: 'advance' } do %>
-            <div id="list_words"></div>
+
+            <div id="list_words"><%= render list %></div>
             <%= turbo_frame_tag :pagination,
               loading: :lazy,
               src: words_path(dictionary_id: @dictionary.id, format: :turbo_stream, q: @query)
