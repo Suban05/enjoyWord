@@ -1,4 +1,5 @@
 class WordsController < ApplicationController
+  include Pagy::Backend
   include WordsHelper
   include WordSearchable
 
@@ -6,9 +7,10 @@ class WordsController < ApplicationController
   before_action :set_dictionary, only: %i[index new create]
   before_action :set_word, only: %i[edit update show destroy]
   before_action :set_search_params, only: %i[index create]
+  before_action :set_page, only: %i[index new edit]
 
   def index
-    @words = @q.result(distinct: true).order(:created_at)
+    @pagy, @words = pagy_countless(@q.result(distinct: true).order(:created_at), items: 10)
   end
 
   def new
@@ -25,6 +27,7 @@ class WordsController < ApplicationController
   end
 
   def edit
+    @dictionary = @word.dictionary
   end
 
   def update
@@ -56,5 +59,9 @@ class WordsController < ApplicationController
 
   def words_params
     params.require(:word).permit(:content, :translation, :dictionary_id)
+  end
+
+  def set_page
+    @page = params[:page]
   end
 end
