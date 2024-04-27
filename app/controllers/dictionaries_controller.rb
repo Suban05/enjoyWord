@@ -1,9 +1,12 @@
 class DictionariesController < ApplicationController
+  include Pagy::Backend
+
   before_action :authenticate_user!
   before_action :set_dictionary, only: %i[edit update show destroy]
+  before_action :set_page, only: %i[index new edit]
 
   def index
-    @dictionaries = current_user.dictionaries.all
+    @pagy, @dictionaries = pagy_countless(current_user.dictionaries.order(created_at: :desc), items: 10)
   end
 
   def new
@@ -46,5 +49,9 @@ class DictionariesController < ApplicationController
 
   def dictionaries_params
     params.require(:dictionary).permit(:name, :translation_type)
+  end
+
+  def set_page
+    @page = params[:page]
   end
 end

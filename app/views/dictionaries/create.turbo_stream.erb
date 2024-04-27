@@ -7,5 +7,5 @@
         new_object: Dictionary.new
      }
 %>
-<%= turbo_stream.append 'list', @dictionary %>
+<%= turbo_stream.prepend 'pagy_list', @dictionary %>
 <%= prepend_flash %>

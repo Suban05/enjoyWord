@@ -5,5 +5,6 @@
   create_button_title_path: t('dictionary.index.new_dictionary'),
   create_button_link: new_dictionary_path,
   new_object: Dictionary.new,
+  pagination_src: dictionaries_path(format: :turbo_stream, page: @pagy.next),
   list_class: 'grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'
 %>

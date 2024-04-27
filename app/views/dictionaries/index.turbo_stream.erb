@@ -1,0 +1,5 @@
+<%= render 'shared/pagy_list',
+    list: @dictionaries,
+    src: dictionaries_path(format: :turbo_stream, page: @pagy.next),
+    pagy: @pagy
+%>

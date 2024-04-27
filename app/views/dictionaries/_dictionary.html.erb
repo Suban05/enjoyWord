@@ -6,7 +6,7 @@
 
     <div class="flex flex-wrap justify-between">
       <%= link_to t('dictionary.show.action'), dictionary, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium mb-1", data: { turbo_frame: '_top' } %>
-      <%= link_to t('dictionary.edit.action'), edit_dictionary_path(dictionary), class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium mb-1" %>
+      <%= link_to t('dictionary.edit.action'), edit_dictionary_path(dictionary, page: @page), class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium mb-1" %>
       <%= link_to t('dictionary.destroy.action'), dictionary_path(dictionary), class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium mb-1", data: { turbo_method: :delete, turbo_confirm: t('are_you_sure') } %>
     </div>
   </div>
