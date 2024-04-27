@@ -1,12 +1,5 @@
-<%= turbo_stream.append 'list_words' do %>
-    <%= render @words %>
-<% end %>
-
-<% if @pagy.next.present? %>
-    <%= turbo_stream.replace :pagination do %>
-        <%= turbo_frame_tag :pagination,
-            loading: :lazy,
-            src: words_path(dictionary_id: @dictionary.id, format: :turbo_stream, page: @pagy.next, q: @query)
-        %>
-    <% end %>
-<% end %>
+<%= render 'shared/pagy_list',
+    list: @words,
+    src: words_path(dictionary_id: @dictionary.id, format: :turbo_stream, page: @pagy.next, q: @query),
+    pagy: @pagy
+%>

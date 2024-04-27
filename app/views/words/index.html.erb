@@ -3,6 +3,7 @@
     list_id: 'words',
     list_title_path: @dictionary.name,
     list: @words,
-    dictionary_id: @dictionary
+    dictionary_id: @dictionary,
+    pagination_src: words_path(dictionary_id: @dictionary.id, format: :turbo_stream, q: @query)
   )
 %>
