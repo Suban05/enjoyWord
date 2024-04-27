@@ -10,7 +10,7 @@ class WordsController < ApplicationController
   before_action :set_page, only: %i[index new edit]
 
   def index
-    @pagy, @words = pagy_countless(@q.result(distinct: true).order(:created_at), items: 10)
+    @pagy, @words = pagy_countless(@q.result(distinct: true).order(created_at: :desc), items: 10)
   end
 
   def new
