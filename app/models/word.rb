@@ -1,6 +1,6 @@
 class Word < ApplicationRecord
   belongs_to :dictionary
-  has_many :examples
+  has_many :examples, dependent: :destroy
   validates :content, :translation, presence: true
 
   def self.ransackable_attributes(_auth_object = nil)
