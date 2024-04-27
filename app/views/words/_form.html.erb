@@ -14,7 +14,7 @@
         <%= form.hidden_field :dictionary_id, value: word.dictionary_id %>
         <div class="inline">
             <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
-            <%= link_to t('word.back_to_words'), words_path(dictionary_id: word.dictionary_id, page: @page), class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+            <%= link_to t('word.back_to_words'), word.dictionary, data: { turbo_frame: "_top" }, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
         </div>
     <% end %>
 <% end %>
