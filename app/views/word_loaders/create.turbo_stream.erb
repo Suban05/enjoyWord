@@ -4,6 +4,6 @@
     )
 %>
 <% @words.each do |word| %>
-    <%= turbo_stream.append 'list', word %>
+    <%= turbo_stream.prepend 'list', word %>
 <% end %>
 <%= prepend_flash %>

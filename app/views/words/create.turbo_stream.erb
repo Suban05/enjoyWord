@@ -3,5 +3,5 @@
         dictionary_id: @word.dictionary_id
     )
 %>
-<%= turbo_stream.append 'list', @word %>
+<%= turbo_stream.prepend 'list', @word %>
 <%= prepend_flash %>
