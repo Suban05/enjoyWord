@@ -2,6 +2,7 @@ class WordsController < ApplicationController
   include Pagy::Backend
   include WordsHelper
   include WordSearchable
+  include TurboReturnable
 
   before_action :authenticate_user!
   before_action :set_dictionary, only: %i[index new create]
@@ -10,7 +11,7 @@ class WordsController < ApplicationController
   before_action :set_page, only: %i[index new edit]
 
   def index
-    @pagy, @words = pagy_countless(@q.result(distinct: true).order(created_at: :desc), items: 10)
+    @pagy, @words = pagy_countless(prepare_returnable_query(@q.result(distinct: true)), items: 10)
   end
 
   def new

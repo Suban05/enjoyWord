@@ -1,12 +1,12 @@
 class DictionariesController < ApplicationController
   include Pagy::Backend
+  include TurboReturnable
 
   before_action :authenticate_user!
   before_action :set_dictionary, only: %i[edit update show destroy]
-  before_action :set_page, only: %i[index new edit]
 
   def index
-    @pagy, @dictionaries = pagy_countless(current_user.dictionaries.order(created_at: :desc), items: 10)
+    @pagy, @dictionaries = pagy_countless(prepare_returnable_query(current_user.dictionaries), items: 15)
   end
 
   def new
