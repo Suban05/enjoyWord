@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root 'dictionaries#index'
+  get 'home', to: 'pages#home'
+  root 'pages#home'
   get 'signup', to: 'users#new'
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'

@@ -1,5 +1,6 @@
 en:
   word:
+    title: 'Word'
     create:
       success: New word created successfully
     edit:

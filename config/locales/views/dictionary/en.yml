@@ -1,5 +1,6 @@
 en:
   dictionary:
+    title: 'Dictionary'
     create:
       success: New dictionary created successfully
     edit:
