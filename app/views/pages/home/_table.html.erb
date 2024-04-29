@@ -1,0 +1,26 @@
+<div class="flex justify-between items-center flex-column flex-wrap mb-4">
+    <h1 class="font text-xl"><%= title %></h1>
+    <% if local_assigns[:more_detailed_path] %>
+        <%= link_to more_detailed_path, class: "flex items-center p-2 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-900 rounded-lg dark:text-white group" do %>
+            <span class="flex-1 whitespace-nowrap"><%= more_detailed_title %></span>
+        <% end %>
+    <% end %>
+</div>
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <% columns.each do |column| %>
+                    <th scope="col" class="px-6 py-3">
+                        <%= column %>
+                    </th>
+                <% end %>
+            </tr>
+        </thead>
+        <tbody>
+            <% table.each do |item| %>
+                <%= render partial_row_path, row: item %>
+            <% end %>
+        </tbody>
+    </table>
+</div>

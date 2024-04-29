@@ -1,4 +1,6 @@
 en:
   pages:
     home:
-      last_added: Last added words
+      last_added_words: Last added words
+      all_dictionaries: All dictionaries
+      popular_dictionaries: Popular dictionaries
