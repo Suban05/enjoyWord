@@ -41,9 +41,9 @@ module DictionaryWritable
 
     def language_mappings
       {
-        english: English,
-        russian: Russian,
-        spanish: Spanish,
+        english: Languages::English,
+        russian: Languages::Russian,
+        spanish: Languages::Spanish,
       }
     end
   end
