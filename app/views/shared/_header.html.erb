@@ -21,9 +21,6 @@
     </div>
 
     <% if local_assigns[:is_empty_list] %>
-        <div class="items-center">
-            <p class="mt-5 mb-3 text-lg text-center text-gray-500 md:text-xl dark:text-gray-400">Empty for now</p>
-        </div>
+        <%= render 'shared/empty_data' %>
     <% end %>
-
 <% end %>

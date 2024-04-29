@@ -6,21 +6,25 @@
         <% end %>
     <% end %>
 </div>
-<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-            <tr>
-                <% columns.each do |column| %>
-                    <th scope="col" class="px-6 py-3">
-                        <%= column %>
-                    </th>
-                <% end %>
-            </tr>
-        </thead>
-        <tbody>
-            <% table.each do |item| %>
-                <%= render partial_row_path, row: item %>
-            <% end %>
-        </tbody>
-    </table>
-</div>
+<% if table.empty? %>
+    <%= render 'shared/empty_data', content: 'Not data' %>
+<% else %>
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <% columns.each do |column| %>
+                            <th scope="col" class="px-6 py-3">
+                                <%= column %>
+                            </th>
+                        <% end %>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% table.each do |item| %>
+                        <%= render partial_row_path, row: item %>
+                    <% end %>
+                </tbody>
+            </table>
+    </div>
+<% end %>
