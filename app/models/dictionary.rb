@@ -9,7 +9,7 @@ class Dictionary < ApplicationRecord
 
   scope :popular, ->(user) do
     left_joins(:words)
-    .select('count(words.id) as words_count, max(words.created_at) as updated_at, dictionaries.id, dictionaries.name, dictionaries.translation_type')
+    .select('COALESCE(count(words.id), 0) as words_count, max(words.created_at) as updated_at, dictionaries.id, dictionaries.name, dictionaries.translation_type')
     .where(user_id: user.id)
     .group(:id, :name, :translation_type)
     .order('words_count DESC')
