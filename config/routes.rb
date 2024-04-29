@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   resources :words
   resources :examples
   resources :word_loaders, only: [:new, :create]
+  match '*unmatched', to: 'application#render_404', via: :all
 end

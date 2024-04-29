@@ -50,12 +50,12 @@ class WordsController < ApplicationController
   private
 
   def set_dictionary
-    id = params[:dictionary_id] || params[:word][:dictionary_id]
-    @dictionary = current_user.dictionaries.find_by(id:)
+    id = params[:dictionary_id] || params.dig(:word, :dictionary_id)
+    @dictionary = current_user.dictionaries.find(id)
   end
 
   def set_word
-    @word = Word.find_by(id: params[:id])
+    @word = Word.find(params[:id])
   end
 
   def words_params

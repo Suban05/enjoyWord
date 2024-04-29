@@ -42,11 +42,11 @@ class ExamplesController < ApplicationController
   private
 
   def set_word
-    @word = Word.find_by(id: params[:word_id])
+    @word = Word.find(params[:word_id])
   end
 
   def set_example
-    @example = Example.find_by(id: params[:id])
+    @example = Example.find(params[:id])
   end
 
   def examples_params

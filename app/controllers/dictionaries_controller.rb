@@ -44,7 +44,7 @@ class DictionariesController < ApplicationController
   private
 
   def set_dictionary
-    @dictionary = current_user.dictionaries.find_by(id: params[:id])
+    @dictionary = current_user.dictionaries.find(params[:id])
   end
 
   def dictionaries_params
