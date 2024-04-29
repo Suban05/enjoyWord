@@ -9,6 +9,6 @@
         <%= row.words_count %>
     </td>
     <td class="px-6 py-4">
-        <%= "#{time_ago_in_words(row.updated_at)} ago" %>
+        <%= time_ago(row.updated_at) %>
     </td>
 </tr>

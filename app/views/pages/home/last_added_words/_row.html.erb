@@ -9,6 +9,6 @@
         <%= link_to row.dictionary.name, words_path(dictionary_id: row.dictionary), type:"button", class: "font-medium text-blue-600 dark:text-blue-500 hover:underline" %>
     </td>
     <td class="px-6 py-4">
-        <%= "#{time_ago_in_words(row.created_at)} ago" %>
+        <%= time_ago(row.created_at) %>
     </td>
 </tr>
