@@ -9,3 +9,18 @@ two:
   content: MyString
   translation: MyString
   dictionary: english_spanish
+
+hello:
+  content: hello
+  translation: привет
+  dictionary: english_russian
+
+file:
+  content: file
+  translation: файл
+  dictionary: english_russian
+
+keyboard:
+  content: keyboard
+  translation: клавиатура
+  dictionary: english_russian
