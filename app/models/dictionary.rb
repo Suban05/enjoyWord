@@ -25,4 +25,11 @@ class Dictionary < ApplicationRecord
   def translation_type_display
     translation_type.to_s.humanize
   end
+
+  def reset_learned_words
+    words.each do |word|
+      word.learned = false
+      word.save
+    end
+  end
 end

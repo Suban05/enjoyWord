@@ -1,19 +1,21 @@
 <%= render 'shared/flash' %>
-<h1 class="font-bold text-4xl mb-1">Learning</h1>
 <% if @word %>
-<%= form_with(url: learning_sessions_path(dictionary_id: @dictionary), class: "contents") do |form| %>
-    <div class="my-5">
-      <h1><%= @word.translation %></h1>
-    </div>
-    <div class="my-5">
-        <%= form.label :answer %>
-        <%= form.text_field :answer, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-    </div>
-    <%= form.hidden_field :dictionary_id, value: @dictionary.id %>
-    <%= form.hidden_field :word_id, value: @word.id %>
-    <div class="inline">
-        <%= form.submit 'Check', class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
-        <%= link_to t('word.back_to_words'), words_path(dictionary_id: @dictionary), class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    </div>
-<% end %>
+    <h1 class="font-bold text-4xl mb-1">Learning</h1>
+    <%= form_with(url: learning_sessions_path(dictionary_id: @dictionary), class: "contents") do |form| %>
+        <div class="my-5">
+        <h1><%= @word.translation %></h1>
+        </div>
+        <div class="my-5">
+            <%= form.label :answer %>
+            <%= form.text_field :answer, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+        </div>
+        <%= form.hidden_field :dictionary_id, value: @dictionary.id %>
+        <%= form.hidden_field :word_id, value: @word.id %>
+        <div class="inline">
+            <%= form.submit 'Check', class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+            <%= link_to t('word.back_to_words'), words_path(dictionary_id: @dictionary), class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+        </div>
+    <% end %>
+<% else %>
+    <%= render 'shared/empty_data', @params_of_empty_data %>
 <% end %>
