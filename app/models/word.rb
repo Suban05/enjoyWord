@@ -6,6 +6,15 @@ class Word < ApplicationRecord
   validates :content, :translation, presence: true
 
   scope :last_added, ->(user) { latest_ordered.where(dictionary_id: user.dictionaries.all).first(5) }
+  scope :not_learned_words, -> { latest_ordered.where(learned: false) }
+
+  def check_answer(answer)
+    if self.content.downcase == answer.strip.downcase
+      self.learned = true
+      return self.save
+    end
+    false
+  end
 
   def self.ransackable_attributes(_auth_object = nil)
     %w[content translation]

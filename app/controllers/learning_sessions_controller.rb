@@ -8,7 +8,7 @@ class LearningSessionsController < ApplicationController
     button_data = {}
     if @dictionary.words.count == 0
       content = "There aren't any words for learning"
-    elsif @dictionary.words.latest_ordered.where(learned: false).count == 0
+    elsif @dictionary.words.not_learned_words.count == 0
       content = "The all words are learned"
       button_title = 'Learn again'
       button_path = learn_words_again_path(dictionary_id: @dictionary)
@@ -17,15 +17,13 @@ class LearningSessionsController < ApplicationController
     @params_of_empty_data = {
       content: content, button_title: button_title, button_path: button_path, button_data: button_data
     }
-    @word = @dictionary.words.latest_ordered.where(learned: false).first
+    @word = @dictionary.words.not_learned_words.first
   end
 
   def create
     word = Word.find(params[:word_id])
     answer = params[:answer]
-    if word.content == answer
-      word.learned = true
-      word.save
+    if word.check_answer(answer)
       flash[:green] = 'Correct'
     else
       flash[:red] = "Incorrect. Correct: #{word.content}"
