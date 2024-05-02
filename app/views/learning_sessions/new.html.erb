@@ -17,5 +17,6 @@
         </div>
     <% end %>
 <% else %>
+    <%= link_to sanitize("&larr; #{t('word.back_to_words')}"), @dictionary %>
     <%= render 'shared/empty_data', @params_of_empty_data %>
 <% end %>
