@@ -1,0 +1,9 @@
+en:
+  learning_session:
+    no_words: There aren't any words for learning
+    words_are_learned: The all words are learned
+    learn_again: Learn again
+    correct: Correct
+    incorrect: Incorrect
+    check: Check
+    learning: Learning

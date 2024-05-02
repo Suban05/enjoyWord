@@ -7,10 +7,10 @@ class LearningSessionsController < ApplicationController
     button_path = nil
     button_data = {}
     if @dictionary.words.count == 0
-      content = "There aren't any words for learning"
+      content = t('learning_session.no_words')
     elsif @dictionary.words.not_learned_words.count == 0
-      content = "The all words are learned"
-      button_title = 'Learn again'
+      content = t('learning_session.words_are_learned')
+      button_title = t('learning_session.learn_again')
       button_path = learn_words_again_path(dictionary_id: @dictionary)
       button_data = { turbo_method: :delete }
     end
@@ -24,9 +24,9 @@ class LearningSessionsController < ApplicationController
     word = Word.find(params[:word_id])
     answer = params[:answer]
     if word.check_answer(answer)
-      flash[:green] = 'Correct'
+      flash[:green] = t('learning_session.correct')
     else
-      flash[:red] = "Incorrect. Correct: #{word.content}"
+      flash[:red] = "#{t('learning_session.incorrect')}. #{t('learning_session.incorrect')}: #{word.content}"
     end
     redirect_to new_learning_session_path(dictionary_id: word.dictionary)
   end
