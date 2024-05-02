@@ -11,6 +11,7 @@ module WordsHelper
       create_button_title_path: t('word.index.new_word'),
       create_button_link: new_word_path(dictionary_id:),
       load_words_button_link: new_word_loader_path(dictionary_id:),
+      learn_words_button_link: new_learning_session_path(dictionary_id:),
       search_form: 'words/search_form',
       new_object: Word.new
     }.merge(options)
