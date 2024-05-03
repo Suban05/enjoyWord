@@ -1,7 +1,7 @@
 require_relative 'languages'
 
 class Dictionary < ApplicationRecord
-  include DictionaryWritable
+  include Lingual
   include Orderable
 
   belongs_to :user

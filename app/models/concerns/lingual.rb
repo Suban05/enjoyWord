@@ -1,4 +1,4 @@
-module DictionaryWritable
+module Lingual
   extend ActiveSupport::Concern
 
   included do
@@ -6,13 +6,21 @@ module DictionaryWritable
     enum translation_type: translation_types
   end
 
+  def available_languages
+    languages = self.translation_type.to_s.split('_')
+    {
+      first_language: Dictionary.language_mappings[languages.first.to_sym],
+      second_language: Dictionary.language_mappings[languages.second.to_sym]
+    }
+  end
+
   class_methods do
     # @param words [String]
     def write_words(dictionary, words)
-      languages = dictionary.translation_type.to_s.split('_')
-      first_language = language_mappings[languages.first.to_sym]
-      second_language = language_mappings[languages.second.to_sym]
-      regex = /(.+?#{first_language.word_template}.+?)\s*-\s*(.+#{second_language.word_template}.+)/
+      languages = dictionary.available_languages
+      first_template = languages[:first_language].word_template
+      second_template = languages[:second_language].word_template
+      regex = /(.+?#{first_template}.+?)\s*-\s*(.+#{second_template}.+)/
       word_pairs = words.scan(regex)
       result = []
       word_pairs.each do |pair|
@@ -22,6 +30,14 @@ module DictionaryWritable
         end
       end
       result
+    end
+
+    def language_mappings
+      {
+        english: Languages::English,
+        russian: Languages::Russian,
+        spanish: Languages::Spanish,
+      }
     end
 
     private
@@ -37,14 +53,6 @@ module DictionaryWritable
         end
       end
       types
-    end
-
-    def language_mappings
-      {
-        english: Languages::English,
-        russian: Languages::Russian,
-        spanish: Languages::Spanish,
-      }
     end
   end
 end
