@@ -1,5 +1,6 @@
 module Lingual
   extend ActiveSupport::Concern
+  include TheFreeDictionary
 
   included do
     validates :name, :translation_type, presence: true
@@ -18,8 +19,8 @@ module Lingual
     # @param words [String]
     def write_words(dictionary, words)
       languages = dictionary.available_languages
-      first_template = languages[:first_language].new.word_template
-      second_template = languages[:second_language].new.word_template
+      first_template = languages[:first_language].word_template
+      second_template = languages[:second_language].word_template
       regex = /(.+?#{first_template}.+?)\s*-\s*(.+#{second_template}.+)/
       word_pairs = words.scan(regex)
       result = []
@@ -34,9 +35,9 @@ module Lingual
 
     def language_mappings
       {
-        english: Languages::English,
-        russian: Languages::Russian,
-        spanish: Languages::Spanish,
+        english: Languages::English.new(EnglishAudio.new),
+        russian: Languages::Russian.new(NoneAudio.new),
+        spanish: Languages::Spanish.new(SpanishAudio.new),
       }
     end
 
