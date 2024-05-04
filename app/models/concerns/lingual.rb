@@ -8,10 +8,20 @@ module Lingual
   end
 
   def available_languages
+    available_languages_data(Dictionary.language_mappings)
+  end
+
+  def available_languages_audio
+    available_languages_data(Dictionary.language_audio_mappings)
+  end
+
+  private
+
+  def available_languages_data(mappings)
     languages = self.translation_type.to_s.split('_')
     {
-      first_language: Dictionary.language_mappings[languages.first.to_sym],
-      second_language: Dictionary.language_mappings[languages.second.to_sym]
+      first_language: mappings[languages.first.to_sym],
+      second_language: mappings[languages.second.to_sym]
     }
   end
 
@@ -19,8 +29,8 @@ module Lingual
     # @param words [String]
     def write_words(dictionary, words)
       languages = dictionary.available_languages
-      first_template = languages[:first_language].word_template
-      second_template = languages[:second_language].word_template
+      first_template = languages[:first_language].new.word_template
+      second_template = languages[:second_language].new.word_template
       regex = /(.+?#{first_template}.+?)\s*-\s*(.+#{second_template}.+)/
       word_pairs = words.scan(regex)
       result = []
@@ -35,9 +45,17 @@ module Lingual
 
     def language_mappings
       {
-        english: Languages::English.new(EnglishAudio.new),
-        russian: Languages::Russian.new(NoneAudio.new),
-        spanish: Languages::Spanish.new(SpanishAudio.new),
+        english: Languages::English,
+        russian: Languages::Russian,
+        spanish: Languages::Spanish,
+      }
+    end
+
+    def language_audio_mappings
+      {
+        english: EnglishAudio,
+        russian: NoneAudio,
+        spanish: SpanishAudio,
       }
     end
 
