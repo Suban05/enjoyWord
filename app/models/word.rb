@@ -16,6 +16,10 @@ class Word < ApplicationRecord
     false
   end
 
+  def pronunciation
+    self.dictionary.available_languages[:first_language].pronunciation(self)[:source]
+  end
+
   def self.ransackable_attributes(_auth_object = nil)
     %w[content translation]
   end
