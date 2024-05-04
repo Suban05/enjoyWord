@@ -40,6 +40,7 @@ class WordsController < ApplicationController
   end
 
   def show
+    @audio_src = @word.pronunciation
   end
 
   def destroy
