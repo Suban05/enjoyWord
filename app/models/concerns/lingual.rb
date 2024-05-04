@@ -18,8 +18,8 @@ module Lingual
     # @param words [String]
     def write_words(dictionary, words)
       languages = dictionary.available_languages
-      first_template = languages[:first_language].word_template
-      second_template = languages[:second_language].word_template
+      first_template = languages[:first_language].new.word_template
+      second_template = languages[:second_language].new.word_template
       regex = /(.+?#{first_template}.+?)\s*-\s*(.+#{second_template}.+)/
       word_pairs = words.scan(regex)
       result = []

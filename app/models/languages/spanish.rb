@@ -1,6 +1,6 @@
 module Languages
   class Spanish
-    def self.word_template
+    def word_template
       /[a-zA-ZáéíóúüñÁÉÍÓÚÜÑ]+/
     end
   end

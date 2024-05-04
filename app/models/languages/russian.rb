@@ -1,6 +1,6 @@
 module Languages
   class Russian
-    def self.word_template
+    def word_template
       /[а-яА-Я]+/
     end
   end
