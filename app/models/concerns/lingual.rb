@@ -7,12 +7,29 @@ module Lingual
     enum translation_type: translation_types
   end
 
+  # @param words [String]
+  def write_words(words)
+    languages = self.available_languages
+    first_template = languages[:first_language].new.word_template
+    second_template = languages[:second_language].new.word_template
+    regex = /(.+?#{first_template}.+?)\s*-\s*(.+#{second_template}.+)/
+    word_pairs = words.scan(regex)
+    result = []
+    word_pairs.each do |pair|
+      word = self.words.build(content: pair.first.strip, translation: pair.second.strip)
+      if word.save
+        result << word
+      end
+    end
+    result
+  end
+
   def available_languages
-    available_languages_data(Dictionary.language_mappings)
+    available_languages_data(self.class.language_mappings)
   end
 
   def available_languages_audio
-    available_languages_data(Dictionary.language_audio_mappings)
+    available_languages_data(self.class.language_audio_mappings)
   end
 
   private
@@ -26,23 +43,6 @@ module Lingual
   end
 
   class_methods do
-    # @param words [String]
-    def write_words(dictionary, words)
-      languages = dictionary.available_languages
-      first_template = languages[:first_language].new.word_template
-      second_template = languages[:second_language].new.word_template
-      regex = /(.+?#{first_template}.+?)\s*-\s*(.+#{second_template}.+)/
-      word_pairs = words.scan(regex)
-      result = []
-      word_pairs.each do |pair|
-        word = dictionary.words.build(content: pair.first.strip, translation: pair.second.strip)
-        if word.save
-          result << word
-        end
-      end
-      result
-    end
-
     def language_mappings
       {
         english: Languages::English,

@@ -11,7 +11,7 @@ class WordLoadersController < ApplicationController
 
   def create
     words = params[:words]
-    @words = Dictionary.write_words(@dictionary, words)
+    @words = @dictionary.write_words(words)
     if @words.count.positive?
       flash.now[:green] = "#{@words.count} words successfully loaded"
     else
