@@ -2,7 +2,7 @@
   <%= link_to sanitize("&larr; #{t('word.back_to_words')}"), @word.dictionary %>
   <div class="mt-3"></div>
   <div class="flex items-center">
-    <h1 class="font-bold text-4xl flex-grow"><%= @word.content %></h1>
+    <h1 class="font-bold text-4xl"><%= @word.content %></h1>
     <% unless @audio_src.empty? %>
       <%= tag.span id: 'sound-word', 'sound-src': @audio_src, class: 'ml-2 mt-3 cursor-pointer' do %>
         <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
