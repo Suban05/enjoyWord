@@ -4,7 +4,7 @@ module TheFreeDictionary
       TheFreeDictionary::Pronunciation.get do |config|
         config.statement = statement
         config.language = "es"
-        config.region = "EU"
+        config.region = /(EU|LA)/
       end
     end
   end
