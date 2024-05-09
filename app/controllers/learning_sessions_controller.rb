@@ -26,7 +26,7 @@ class LearningSessionsController < ApplicationController
     if word.check_answer(answer)
       flash[:green] = t('learning_session.correct')
     else
-      flash[:red] = "#{t('learning_session.incorrect')}. #{t('learning_session.incorrect')}: #{word.content}"
+      flash[:red] = "#{t('learning_session.incorrect')}. #{t('learning_session.correct')}: #{word.content}"
     end
     redirect_to new_learning_session_path(dictionary_id: word.dictionary)
   end
