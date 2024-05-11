@@ -3,21 +3,9 @@ class LearningSessionsController < ApplicationController
   before_action :set_dictionary, only: %i[new create destroy]
 
   def new
-    button_title = nil
-    button_path = nil
-    button_data = {}
-    if @dictionary.words.count == 0
-      content = t('learning_session.no_words')
-    elsif @dictionary.words.not_learned_words.count == 0
-      content = t('learning_session.words_are_learned')
-      button_title = t('learning_session.learn_again')
-      button_path = learn_words_again_path(dictionary_id: @dictionary)
-      button_data = { turbo_method: :delete }
-    end
-    @params_of_empty_data = {
-      content: content, button_title: button_title, button_path: button_path, button_data: button_data
-    }
-    @word = @dictionary.words.not_learned_words.first
+    learning_data = @dictionary.generate_learning_session_info
+    @params_of_empty_data = learning_data[:params_of_empty_data]
+    @word = learning_data[:word]
   end
 
   def create

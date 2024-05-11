@@ -32,4 +32,23 @@ class Dictionary < ApplicationRecord
       word.save
     end
   end
+
+  def generate_learning_session_info
+    button_title = nil
+    button_path = nil
+    button_data = {}
+    if self.words.count == 0
+      content = t('learning_session.no_words')
+    elsif self.words.not_learned_words.count == 0
+      content = t('learning_session.words_are_learned')
+      button_title = t('learning_session.learn_again')
+      button_path = learn_words_again_path(dictionary_id: self)
+      button_data = { turbo_method: :delete }
+    end
+    params_of_empty_data = {
+      content: content, button_title: button_title, button_path: button_path, button_data: button_data
+    }
+    word = self.words.not_learned_words.first
+    { word:, params_of_empty_data: }
+  end
 end
