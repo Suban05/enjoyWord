@@ -38,10 +38,10 @@ class Dictionary < ApplicationRecord
     button_path = nil
     button_data = {}
     if self.words.count == 0
-      content = t('learning_session.no_words')
+      content = I18n.t('learning_session.no_words')
     elsif self.words.not_learned_words.count == 0
-      content = t('learning_session.words_are_learned')
-      button_title = t('learning_session.learn_again')
+      content = I18n.t('learning_session.words_are_learned')
+      button_title = I18n.t('learning_session.learn_again')
       button_path = learn_words_again_path(dictionary_id: self)
       button_data = { turbo_method: :delete }
     end
