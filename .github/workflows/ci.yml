@@ -13,6 +13,11 @@ on:
   pull_request:
     branches: [ "master" ]
 
+env:
+  POSTGRES_DB: postgres
+  POSTGRES_USER: postgres
+  POSTGRES_PASSWORD: postgres
+
 permissions:
   contents: read
 
@@ -27,7 +32,6 @@ jobs:
       postgres:
         image: postgres
         env:
-          POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
         ports:
           - 5432:5432
