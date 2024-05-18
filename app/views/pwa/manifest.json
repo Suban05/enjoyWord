@@ -1,0 +1,16 @@
+{
+    "name": "EnjoyWord",
+    "short_name": "EnjoyWord",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#fff",
+    "id": "/",
+    "description": "Your personal dictionary.",
+    "icons": [
+      {
+        "src": "android-chrome-192x192.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      }
+    ]
+  }
