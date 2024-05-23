@@ -27,7 +27,6 @@ jobs:
       postgres:
         image: postgres
         env:
-          POSTGRES_DB: postgres
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
         ports:
@@ -49,4 +48,4 @@ jobs:
       env:
         RAILS_ENV: test
         DATABASE_URL: postgres://postgres:postgres@localhost:5432
-      run: bundle exec rails db:migrate RAILS_ENV=test && bundle exec rake
+      run: bundle exec rails db:create && bundle exec rails db:migrate RAILS_ENV=test && bundle exec rake
