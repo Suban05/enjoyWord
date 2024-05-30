@@ -9,7 +9,7 @@ class Word < ApplicationRecord
   scope :not_learned_words, -> { latest_ordered.where(learned: false) }
 
   def check_answer(answer)
-    if self.content.downcase == answer.strip.downcase
+    if self.content.strip.downcase == answer.strip.downcase
       self.learned = true
       return self.save
     end
