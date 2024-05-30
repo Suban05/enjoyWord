@@ -14,3 +14,9 @@ john:
   name: John
   email: john@email.com
   password_digest: <%= BCrypt::Password.create('password') %>
+  admin: true
+
+jim:
+  name: Jim
+  email: jim@email.com
+  password_digest: <%= BCrypt::Password.create('password') %>

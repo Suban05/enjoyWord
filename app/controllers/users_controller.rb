@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, only: %i[ index show edit update destroy ]
   before_action :set_user, only: %i[ show edit update destroy ]
+  before_action :current_user?, only: %i[ edit update ]
+  before_action :admin?, only: %i[ index show destroy ]
 
   # GET /users or /users.json
   def index
@@ -39,7 +41,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to user_url(@user), notice: "User was successfully updated." }
+        format.html { redirect_to root_path, notice: "User was successfully updated." }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -62,6 +64,16 @@ class UsersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
+    end
+
+    def admin?
+      raise ActiveRecord::RecordNotFound unless current_user.admin?
+    end
+
+    def current_user?
+      return if current_user.admin?
+
+      raise ActiveRecord::RecordNotFound unless current_user == @user
     end
 
     # Only allow a list of trusted parameters through.
