@@ -65,12 +65,13 @@ module Lingual
 
     def translation_types
       languages = language_mappings.keys
-      types = []
+      types = {}
       languages.each do |first|
         languages.each do |second|
           next if first == second
 
-          types << "#{first}_#{second}".to_sym
+          first_second_lang = "#{first}_#{second}"
+          types[first_second_lang.to_sym] = first_second_lang
         end
       end
       types
