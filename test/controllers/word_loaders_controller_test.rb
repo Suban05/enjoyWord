@@ -5,6 +5,7 @@ class WordLoadersControllerTest < ActionDispatch::IntegrationTest
     @user = users(:john)
     @english_spanish = dictionaries(:english_spanish)
     @english_russian = dictionaries(:english_russian)
+    @german_russian = dictionaries(:german_russian)
   end
 
   test "should get new" do
@@ -99,6 +100,24 @@ class WordLoadersControllerTest < ActionDispatch::IntegrationTest
     post word_loaders_path params: { words: words, dictionary_id: @english_spanish.id }
 
     assert_not @english_spanish.words.find_by(content: 'bored')
+  end
+
+  test "shouldn write german word to the german-russian dictionary" do
+    log_in_as(@user)
+
+    words = <<~EOM
+    verheiratet - женатый, замужняя
+    verwitwet - овдовевший
+    die Arbeit - труд, работа
+    übrigens - впрочем, вообще
+    EOM
+
+    post word_loaders_path params: { words: words, dictionary_id: @german_russian.id }
+
+    assert @german_russian.words.find_by(content: 'verheiratet')
+    assert @german_russian.words.find_by(content: 'verwitwet')
+    assert @german_russian.words.find_by(content: 'die Arbeit')
+    assert @german_russian.words.find_by(content: 'übrigens')
   end
 
   test "shouldn't write any words if errors were" do

@@ -1,11 +1,16 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 english_spanish:
-  name: MyString
+  name: English-Spanish
   translation_type: <%= :english_spanish %>
   user: john
 
 english_russian:
-  name: MyString
+  name: English-Russian
+  translation_type: <%= :english_russian %> 
+  user: john
+
+german_russian:
+  name: German-Russian
   translation_type: <%= :english_russian %>
   user: john

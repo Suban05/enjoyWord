@@ -48,6 +48,7 @@ module Lingual
         english: Languages::English,
         russian: Languages::Russian,
         spanish: Languages::Spanish,
+        german:  Languages::German
       }
     end
 
@@ -56,6 +57,7 @@ module Lingual
         english: EnglishAudio,
         russian: NoneAudio,
         spanish: SpanishAudio,
+        german:  GermanAudio
       }
     end
 
