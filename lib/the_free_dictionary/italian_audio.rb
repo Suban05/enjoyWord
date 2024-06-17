@@ -1,5 +1,5 @@
 module TheFreeDictionary
-  class FrenchAudio
+  class ItalianAudio
     def pronunciation(statement)
       TheFreeDictionary::Pronunciation.get do |config|
         config.statement = statement
