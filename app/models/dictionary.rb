@@ -1,5 +1,3 @@
-require_relative 'languages'
-
 class Dictionary < ApplicationRecord
   include Lingual
   include Orderable

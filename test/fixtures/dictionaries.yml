@@ -7,10 +7,20 @@ english_spanish:
 
 english_russian:
   name: English-Russian
-  translation_type: <%= :english_russian %> 
+  translation_type: <%= :english_russian %>
   user: john
 
 german_russian:
   name: German-Russian
   translation_type: <%= :english_russian %>
+  user: john
+
+french_russian:
+  name: French-Russian
+  translation_type: <%= :french_russian %>
+  user: john
+
+italian_russian:
+  name: Italian-Russian
+  translation_type: <%= :italian_russian %>
   user: john

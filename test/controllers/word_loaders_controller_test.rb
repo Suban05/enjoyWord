@@ -6,6 +6,8 @@ class WordLoadersControllerTest < ActionDispatch::IntegrationTest
     @english_spanish = dictionaries(:english_spanish)
     @english_russian = dictionaries(:english_russian)
     @german_russian = dictionaries(:german_russian)
+    @french_russian = dictionaries(:french_russian)
+    @italian_russian = dictionaries(:italian_russian)
   end
 
   test "should get new" do
@@ -102,7 +104,7 @@ class WordLoadersControllerTest < ActionDispatch::IntegrationTest
     assert_not @english_spanish.words.find_by(content: 'bored')
   end
 
-  test "shouldn write german word to the german-russian dictionary" do
+  test "shouldn write german words to the german-russian dictionary" do
     log_in_as(@user)
 
     words = <<~EOM
@@ -118,6 +120,38 @@ class WordLoadersControllerTest < ActionDispatch::IntegrationTest
     assert @german_russian.words.find_by(content: 'verwitwet')
     assert @german_russian.words.find_by(content: 'die Arbeit')
     assert @german_russian.words.find_by(content: 'übrigens')
+  end
+
+  test "shouldn write french words to the french-russian dictionary" do
+    log_in_as(@user)
+
+    words = <<~EOM
+    Bonjour - здравствуйте
+    Au revoir - до свидания
+    S'il vous plaît - пожалуйста
+    EOM
+
+    post word_loaders_path params: { words: words, dictionary_id: @french_russian.id }
+
+    assert @french_russian.words.find_by(content: 'Bonjour')
+    assert @french_russian.words.find_by(content: 'Au revoir')
+    assert @french_russian.words.find_by(content: "S'il vous plaît")
+  end
+
+  test "shouldn write italian words to the italian-russian dictionary" do
+    log_in_as(@user)
+
+    words = <<~EOM
+    Buongiorno - здравствуйте
+    Ciao - до свидания
+    Entrata - вход
+    EOM
+
+    post word_loaders_path params: { words: words, dictionary_id: @italian_russian.id }
+
+    assert @italian_russian.words.find_by(content: 'Buongiorno')
+    assert @italian_russian.words.find_by(content: 'Ciao')
+    assert @italian_russian.words.find_by(content: "Entrata")
   end
 
   test "shouldn't write any words if errors were" do
