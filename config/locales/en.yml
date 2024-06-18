@@ -5,6 +5,7 @@ en:
   signup: Sign up
   signin: Sign in
   login: Sign in
+  log_out: Log out
   save: Save
   not_a_member: Not a member?
   invalid_credentials: Uncorrected login or password
@@ -14,3 +15,5 @@ en:
   created: 'Created'
   empty_for_now: Empty for now
   profile: Profile
+  home: Home
+  loading: Loading...

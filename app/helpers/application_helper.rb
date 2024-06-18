@@ -6,7 +6,7 @@ module ApplicationHelper
   end
 
   def time_ago(date)
-    return 'Not data' if date.nil?
+    return t('empty_for_now') if date.nil?
     "#{time_ago_in_words(date)} ago"
   end
 end
