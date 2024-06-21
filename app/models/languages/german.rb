@@ -1,7 +1,7 @@
 module Languages
   class German < Language
     def word_template
-      /[a-zA-ZáéíóúüñÁÉÍÓÚÜÑ]+/
+      /[a-zA-ZäöüßÄÖÜ]+/
     end
   end
 end
