@@ -1,7 +1,7 @@
 module Languages
   class French < Language
     def word_template
-      /[a-zA-ZáéíóúüñÁÉÍÓÚÜÑ]+/
+      /[a-zA-ZàâçéèêëîïôûùüÿñæœÀÂÇÉÈÊËÎÏÔÛÙÜŸÑÆŒ]+/
     end
   end
 end
