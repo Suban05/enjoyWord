@@ -11,8 +11,8 @@ services:
       RAILS_ENV: production
       SECRET_KEY_BASE: ${SECRET_KEY_BASE}
       DATABASE_URL: ${DATABASE_URL}
-      RAILS_FORCE_SSL: ${RAILS_FORCE_SSL}
-      RAILS_ASSUME_SSL: ${RAILS_ASSUME_SSL}
+      RAILS_FORCE_SSL: "false"
+      RAILS_ASSUME_SSL: "false"
     depends_on:
       - db
 
