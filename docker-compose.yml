@@ -2,10 +2,11 @@ services:
   web:
     build: .
     command: ./bin/rails server -b 0.0.0.0 -p 3000
+    entrypoint: ["sh", "-c", "bundle exec rake assets:precompile && exec ./bin/rails server -b 0.0.0.0 -p 3000"]
     volumes:
       - .:/rails
     ports:
-      - "3001:3000"
+      - "5000:3000"
     environment:
       RAILS_ENV: production
       SECRET_KEY_BASE: ${SECRET_KEY_BASE}
