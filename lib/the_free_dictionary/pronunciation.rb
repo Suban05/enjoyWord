@@ -9,10 +9,14 @@ module TheFreeDictionary
     def self.get
       pronunciation = new
       yield pronunciation if block_given?
-      
+
       uri = URI(URI::Parser.new.escape("https://#{pronunciation.language}.thefreedictionary.com/#{pronunciation.statement}"))
-      response = pronunciation.http_module.get_response(uri)
-      audio_data = response.body.match(/#{pronunciation.language}\/#{pronunciation.region}[^"]+/)
+      begin
+        response = pronunciation.http_module.get_response(uri)
+        audio_data = response.body.match(/#{pronunciation.language}\/#{pronunciation.region}[^"]+/)
+      rescue Socket::ResolutionError
+        audio_data = nil
+      end
       if audio_data.nil?
         source = ''
       else
