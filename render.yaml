@@ -1,0 +1,30 @@
+databases:
+- name: enjoy-word
+  databaseName: enjoy_word
+  user: enjoy_word_user
+  plan: free
+version: "1"
+
+services:
+  - type: web
+    plan: free
+    autoDeploy: false
+    runtime: ruby
+    name: EnjoyWord
+    repo: https://github.com/Suban05/EnjoyWord.git
+    branch: master
+    buildCommand: "./bin/render-build.sh"
+    preDeployCommand: "bundle exec rails db:migrate"
+    startCommand: "bundle exec rails server"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: enjoy-word
+          property: connectionString
+
+        # To generate this, run: `openssl rand -hex 64` or `rails secret`
+      - key: SECRET_KEY_BASE
+        sync: false
+
+      - key: WEB_CONCURRENCY
+        value: 2

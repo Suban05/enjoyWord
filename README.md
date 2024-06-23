@@ -26,6 +26,12 @@ EnjoyWord is a simple application for creating and managing your own dictionarie
 
 ## Setup Guide
 
+### Deploy in One Click
+
+### Render
+
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy)
+
 ### Using Docker
 
 You can run the app using Docker Compose.
