@@ -21,7 +21,10 @@ class Dictionary < ApplicationRecord
   end
 
   def translation_type_display
-    translation_type.to_s.humanize
+    languages = translation_type.to_s.split("_").map do |s|
+      s.capitalize
+    end
+    languages.join("-")
   end
 
   def reset_learned_words
