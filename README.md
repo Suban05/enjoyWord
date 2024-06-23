@@ -32,6 +32,16 @@ EnjoyWord is a simple application for creating and managing your own dictionarie
 
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy)
 
+1. Click the button above
+2. Sign in or create your account with [Render](https://render.com/) (FREE)
+3. Give your blueprint a name
+4. Select the `master` branch
+5. On your computer, open a terminal and make sure you have the [openssl](https://github.com/openssl/openssl) utility installed on your computer
+6. Generate your `SECRET_KEY_BASE` by running the following command in your terminal: `openssl rand -hex 64` ([docs](https://www.openssl.org/docs/man1.1.1/man1/rand.html))
+7. Go back to your browser and paste this value in the "Value" field for `SECRET_KEY_BASE`
+8. Click "Apply". This will take a few minutes
+9. Сlick on the `EnjoyWord` "Web Service". You should see a custom URL in the format `https://enjoyword-abcd.onrender.com`. Click on it, and you'll run the `EnjoyWord` app.
+
 ### Using Docker
 
 You can run the app using Docker Compose.
