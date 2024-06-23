@@ -51,7 +51,7 @@ cd ~/docker-apps
 2. Clone the repository:
 
 ```bash
-git clone https://github.com/Suban05/enjoyWord.git
+git clone https://github.com/Suban05/EnjoyWord.git
 ```
 
 Alternatively, you can download the project files and add them to a folder.
@@ -59,7 +59,7 @@ Alternatively, you can download the project files and add them to a folder.
 3. Navigate into the project folder. For example:
 
 ```bash
-cd ~/docker-apps/enjoyWord
+cd ~/docker-apps/EnjoyWord
 ```
 
 ### Step 3: Create your environment file
