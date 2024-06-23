@@ -16,9 +16,9 @@ Rails.application.routes.draw do
   resources :word_loaders, only: [:new, :create]
   resources :learning_sessions, only: [:new, :create, :destroy]
 
-   # Render dynamic PWA files from app/views/pwa/*
-   get "service-worker" => "pwa#service_worker", as: :pwa_service_worker
-   get "manifest" => "pwa#manifest", as: :pwa_manifest
+  # Render dynamic PWA files from app/views/pwa/*
+  get "service-worker" => "pwa#service_worker", as: :pwa_service_worker
+  get "manifest" => "pwa#manifest", as: :pwa_manifest
 
   match '*unmatched', to: 'application#render_404', via: :all
 end
