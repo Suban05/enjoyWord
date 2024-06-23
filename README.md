@@ -1,4 +1,5 @@
 # EnjoyWord: Your Personal Dictionary
+![image](https://github.com/Suban05/enjoyWord/assets/88084038/90774536-32b1-47a1-bd49-259932de84ff)
 
 EnjoyWord is a simple application for creating and managing your own dictionaries. It allows you to add new words and usage examples, as well as listen to the pronunciation of words.
 
