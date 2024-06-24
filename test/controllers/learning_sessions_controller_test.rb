@@ -50,6 +50,10 @@ class LearningSessionsControllerTest < ActionDispatch::IntegrationTest
     end
     assert_not flash.empty?
     assert 0, @dictionary.words.not_learned_words.count
+
+    get new_learning_session_path(dictionary_id: @dictionary)
+    assert_response :success
+    assert response.body.match('Learn again')
   end
 
   test "should learn word without dependency of register" do
