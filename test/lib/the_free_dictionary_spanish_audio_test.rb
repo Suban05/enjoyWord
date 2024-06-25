@@ -25,6 +25,7 @@ class TheFreeDictionarySpanishAudioTest < ActiveSupport::TestCase
       config.region = "EU"
     end
     assert_equal "https://img2.tfd.com/pron/mp3/es/EU/dk/dkskdhdndfdssydyhn.mp3", result[:source]
+    assert_not result[:transcription]
   end
 
   test 'should get empty pronunciation of statement' do

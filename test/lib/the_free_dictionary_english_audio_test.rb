@@ -32,7 +32,8 @@ class TheFreeDictionaryEnglishAudioTest < ActiveSupport::TestCase
             <div id="content" class="zi">
               <div class="content-holder">
                 <div class="zi" id="zi1"></div>
-                <h1>glossary</h1><span class="snd2" data-snd="en/US/st/stdyd3sjsssydsstykgk"></span><span class=snd2 data-snd="en/UK/st/stdyd3sjsssydsstykgk"></span><br>Also found in: <a href="//www.freethesaurus.com/glossary">Thesaurus</a>, <a href="//medical-dictionary.thefreedictionary.com/glossary">Medical</a>, <a href="//legal-dictionary.thefreedictionary.com/glossary">Legal</a>, <a href="//acronyms.thefreedictionary.com/glossary">Acronyms</a>, <a href="//encyclopedia2.thefreedictionary.com/glossary">Encyclopedia</a>, <a href="//encyclopedia.thefreedictionary.com/glossary">Wikipedia</a>.<div id="relToLnks">Related to glossary: <a href="//www.thefreedictionary.com/dictionary">dictionary</a></div>'
+                <h1>glossary</h1><span class="snd2" data-snd="en/US/st/stdyd3sjsssydsstykgk"></span><span class=snd2 data-snd="en/UK/st/stdyd3sjsssydsstykgk"></span><br>Also found in: <a href="//www.freethesaurus.com/glossary">Thesaurus</a>, <a href="//medical-dictionary.thefreedictionary.com/glossary">Medical</a>, <a href="//legal-dictionary.thefreedictionary.com/glossary">Legal</a>, <a href="//acronyms.thefreedictionary.com/glossary">Acronyms</a>, <a href="//encyclopedia2.thefreedictionary.com/glossary">Encyclopedia</a>, <a href="//encyclopedia.thefreedictionary.com/glossary">Wikipedia</a>.<div id="relToLnks">Related to glossary: <a href="//www.thefreedictionary.com/dictionary">dictionary</a></div>
+                <span onclick="pron_key(1)" class="pron">ˈɡlɒsərɪ</span>'
           end
         end
       end
@@ -45,5 +46,6 @@ class TheFreeDictionaryEnglishAudioTest < ActiveSupport::TestCase
       config.region = "US"
     end
     assert_equal "https://img2.tfd.com/pron/mp3/en/US/st/stdyd3sjsssydsstykgk.mp3", result[:source]
+    assert_equal "ˈɡlɒsərɪ", result[:transcription]
   end
 end

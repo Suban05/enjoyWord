@@ -20,10 +20,11 @@ class TheFreeDictionaryGermanAudioTest < ActiveSupport::TestCase
       config.region = "DE"
     end
     assert_equal '', result[:source]
+    assert_not result[:transcription]
   end
 
   test 'should get pronunciation of word' do
-    statement = 'glossary'
+    statement = 'lesen'
     http_module = Class.new do
       def self.get_response(url)
         Class.new do
@@ -112,5 +113,6 @@ class TheFreeDictionaryGermanAudioTest < ActiveSupport::TestCase
       config.region = "DE"
     end
     assert_equal "https://img2.tfd.com/pron/mp3/de/DE/d3/d3d7dssddtshhr.mp3", result[:source]
+    assert_equal "ˈleːzən", result[:transcription]
   end
 end

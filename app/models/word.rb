@@ -19,7 +19,7 @@ class Word < ApplicationRecord
   def pronunciation
     language_class = self.dictionary.available_languages[:first_language]
     language = language_class.new(self.dictionary.available_languages_audio[:first_language].new)
-    language.pronunciation(self)[:source]
+    language.pronunciation(self)
   end
 
   def self.ransackable_attributes(_auth_object = nil)
