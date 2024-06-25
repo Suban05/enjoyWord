@@ -40,7 +40,7 @@ EnjoyWord is a simple application for creating and managing your own dictionarie
 6. Generate your `SECRET_KEY_BASE` by running the following command in your terminal: `openssl rand -hex 64` ([docs](https://www.openssl.org/docs/man1.1.1/man1/rand.html))
 7. Go back to your browser and paste this value in the "Value" field for `SECRET_KEY_BASE`
 8. Click "Apply". This will take a few minutes
-9. Сlick on the `EnjoyWord` "Web Service". You should see a custom URL in the format `https://enjoyword-abcd.onrender.com`. Click on it, and you'll run the `EnjoyWord` app.
+9. Сlick on the `enjoyWord` "Web Service". You should see a custom URL in the format `https://enjoyword-abcd.onrender.com`. Click on it, and you'll run the `enjoyWord` app.
 
 ### Using Docker
 
@@ -67,7 +67,7 @@ cd ~/docker-apps
 2. Clone the repository:
 
 ```bash
-git clone https://github.com/Suban05/EnjoyWord.git
+git clone https://github.com/Suban05/enjoyWord.git
 ```
 
 Alternatively, you can download the project files and add them to a folder.
@@ -75,7 +75,7 @@ Alternatively, you can download the project files and add them to a folder.
 3. Navigate into the project folder. For example:
 
 ```bash
-cd ~/docker-apps/EnjoyWord
+cd ~/docker-apps/enjoyWord
 ```
 
 ### Step 3: Create your environment file
