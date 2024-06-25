@@ -10,8 +10,8 @@ services:
     plan: free
     autoDeploy: false
     runtime: ruby
-    name: EnjoyWord
-    repo: https://github.com/Suban05/EnjoyWord.git
+    name: enjoyWord
+    repo: https://github.com/Suban05/enjoyWord.git
     branch: master
     buildCommand: "./bin/render-build.sh"
     preDeployCommand: "bundle exec rails db:migrate"
