@@ -14,7 +14,7 @@ module TheFreeDictionary
       begin
         response = pronunciation.http_module.get_response(uri)
         audio_data = response.body.match(/#{pronunciation.language}\/#{pronunciation.region}[^"]+/)
-        transcription_data = response.body.match(/<span.*?onclick="pron_key\(1\)".*?class="pron".*?>(.*?)<\/span>/)
+        transcription_data = response.body.match(/<span[^>]*onclick="pron_key\(1\)"[^>]*class="pron"[^>]*>\s*\(?([^)]+)\)?\s*<\/span>/)
       rescue Socket::ResolutionError
         audio_data = nil
         transcription_data = nil
@@ -28,9 +28,15 @@ module TheFreeDictionary
       if transcription_data.nil?
         transcription = nil
       else
-        transcription = transcription_data[1].force_encoding('UTF-8')
+        transcription = decode_html_entities(transcription_data[1].force_encoding("UTF-8"))
       end
       { source:, transcription: }
+    end
+
+    private
+
+    def self.decode_html_entities(string)
+      string.gsub(/&#(\d+);/) { |match| $1.to_i.chr(Encoding::UTF_8) }
     end
   end
 end
