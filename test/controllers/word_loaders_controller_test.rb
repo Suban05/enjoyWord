@@ -8,6 +8,7 @@ class WordLoadersControllerTest < ActionDispatch::IntegrationTest
     @german_russian = dictionaries(:german_russian)
     @french_russian = dictionaries(:french_russian)
     @italian_russian = dictionaries(:italian_russian)
+    @chinese_russian = dictionaries(:chinese_russian)
   end
 
   test "should get new" do
@@ -158,6 +159,22 @@ class WordLoadersControllerTest < ActionDispatch::IntegrationTest
     assert @italian_russian.words.find_by(content: 'Buongiorno')
     assert @italian_russian.words.find_by(content: 'Ciao')
     assert @italian_russian.words.find_by(content: "Entrata")
+  end
+
+  test "should post create chinese-russian words with symbols" do
+    log_in_as(@user)
+
+    words = <<~EOM
+    你好 - привет
+    谢谢 - спасибо
+    是 - Да
+    EOM
+
+    post word_loaders_path params: { words: words, dictionary_id: @chinese_russian.id }
+
+    assert_equal 'привет', @chinese_russian.words.find_by(content: '你好').translation
+    assert_equal 'спасибо', @chinese_russian.words.find_by(content: '谢谢').translation
+    assert_equal 'Да', @chinese_russian.words.find_by(content: '是').translation
   end
 
   test "shouldn't write any words if errors were" do

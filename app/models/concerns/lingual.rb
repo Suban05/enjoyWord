@@ -38,7 +38,8 @@ module Lingual
         spanish: Languages::Spanish,
         german:  Languages::German,
         italian: Languages::Italian,
-        french:  Languages::French
+        french:  Languages::French,
+        chinese: Languages::Chinese
       }
     end
 
@@ -49,7 +50,8 @@ module Lingual
         spanish: SpanishAudio,
         german:  GermanAudio,
         italian: ItalianAudio,
-        french: FrenchAudio
+        french:  FrenchAudio,
+        chinese: ChineseAudio
       }
     end
 
