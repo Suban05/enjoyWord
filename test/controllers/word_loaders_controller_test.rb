@@ -39,6 +39,8 @@ class WordLoadersControllerTest < ActionDispatch::IntegrationTest
     Hello - привет
     good - хорошо
     word - Слово
+    on - на
+    a - артикль
     EOM
 
     post word_loaders_path params: { words: words, dictionary_id: @english_russian.id }
@@ -46,6 +48,8 @@ class WordLoadersControllerTest < ActionDispatch::IntegrationTest
     assert_equal 'привет', @english_russian.words.find_by(content: 'Hello').translation
     assert_equal 'хорошо', @english_russian.words.find_by(content: 'good').translation
     assert_equal 'Слово', @english_russian.words.find_by(content: 'word').translation
+    assert_equal 'на', @english_russian.words.find_by(content: 'on').translation
+    assert_equal 'артикль', @english_russian.words.find_by(content: 'a').translation
   end
 
   test "should post create english-russian words with symbols" do
@@ -71,6 +75,7 @@ class WordLoadersControllerTest < ActionDispatch::IntegrationTest
     Hello, world! - ¡hola, mundo!
     good - Bien.
     word - palabra
+    and - y
     EOM
 
     post word_loaders_path params: { words: words, dictionary_id: @english_spanish.id }
@@ -78,6 +83,7 @@ class WordLoadersControllerTest < ActionDispatch::IntegrationTest
     assert_equal '¡hola, mundo!', @english_spanish.words.find_by(content: 'Hello, world!').translation
     assert_equal 'Bien.', @english_spanish.words.find_by(content: 'good').translation
     assert_equal 'palabra', @english_spanish.words.find_by(content: 'word').translation
+    assert_equal 'y', @english_spanish.words.find_by(content: 'and').translation
   end
 
   test "should post create english-russian words with dash" do
