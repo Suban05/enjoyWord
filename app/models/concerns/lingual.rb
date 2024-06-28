@@ -9,19 +9,7 @@ module Lingual
 
   # @param words [String]
   def write_words(words)
-    languages = self.available_languages
-    first_template = languages[:first_language].new.word_template
-    second_template = languages[:second_language].new.word_template
-    regex = /(.+?#{first_template}+.+?|#{first_template}+)\s*-\s*(.+#{second_template}+.+|#{second_template}+)/
-    word_pairs = words.scan(regex)
-    result = []
-    word_pairs.each do |pair|
-      word = self.words.build(content: pair.first.strip, translation: pair.second.strip)
-      if word.save
-        result << word
-      end
-    end
-    result
+    WordsLoading::Loader.new(self, WordsLoading::Parser.new(self, words).parse).load
   end
 
   def available_languages
