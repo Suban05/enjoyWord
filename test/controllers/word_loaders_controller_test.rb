@@ -11,6 +11,7 @@ class WordLoadersControllerTest < ActionDispatch::IntegrationTest
     @french_russian = dictionaries(:french_russian)
     @italian_russian = dictionaries(:italian_russian)
     @chinese_russian = dictionaries(:chinese_russian)
+    @russian_english = dictionaries(:russian_english)
   end
 
   test "should get new" do
@@ -19,7 +20,7 @@ class WordLoadersControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should post create english-spanish words" do
+  test "should create english-spanish words" do
     log_in_as(@user)
 
     words = <<~EOM
@@ -35,7 +36,7 @@ class WordLoadersControllerTest < ActionDispatch::IntegrationTest
     assert_equal "palabra", @english_spanish.words.find_by(content: "word").translation
   end
 
-  test "should post create english-russian words" do
+  test "should create english-russian words" do
     log_in_as(@user)
 
     words = <<~EOM
@@ -55,7 +56,7 @@ class WordLoadersControllerTest < ActionDispatch::IntegrationTest
     assert_equal "артикль", @english_russian.words.find_by(content: "a").translation
   end
 
-  test "should post create english-russian words with symbols" do
+  test "should create english-russian words with symbols" do
     log_in_as(@user)
 
     words = <<~EOM
@@ -71,7 +72,7 @@ class WordLoadersControllerTest < ActionDispatch::IntegrationTest
     assert_equal "Слово", @english_russian.words.find_by(content: "word").translation
   end
 
-  test "should post create english-spanish words with symbols" do
+  test "should create english-spanish words with symbols" do
     log_in_as(@user)
 
     words = <<~EOM
@@ -89,7 +90,7 @@ class WordLoadersControllerTest < ActionDispatch::IntegrationTest
     assert_equal "y", @english_spanish.words.find_by(content: "and").translation
   end
 
-  test "should post create english-russian words with dash" do
+  test "should create english-russian words with dash" do
     log_in_as(@user)
 
     words = <<~EOM
@@ -113,7 +114,7 @@ class WordLoadersControllerTest < ActionDispatch::IntegrationTest
     assert_not @english_spanish.words.find_by(content: "bored")
   end
 
-  test "shouldn write german words to the german-russian dictionary" do
+  test "should write german words to the german-russian dictionary" do
     log_in_as(@user)
 
     words = <<~EOM
@@ -131,7 +132,7 @@ class WordLoadersControllerTest < ActionDispatch::IntegrationTest
     assert @german_russian.words.find_by(content: "übrigens")
   end
 
-  test "shouldn write french words to the french-russian dictionary" do
+  test "should write french words to the french-russian dictionary" do
     log_in_as(@user)
 
     words = <<~EOM
@@ -147,7 +148,7 @@ class WordLoadersControllerTest < ActionDispatch::IntegrationTest
     assert @french_russian.words.find_by(content: "S'il vous plaît")
   end
 
-  test "shouldn write italian words to the italian-russian dictionary" do
+  test "should write italian words to the italian-russian dictionary" do
     log_in_as(@user)
 
     words = <<~EOM
@@ -163,7 +164,7 @@ class WordLoadersControllerTest < ActionDispatch::IntegrationTest
     assert @italian_russian.words.find_by(content: "Entrata")
   end
 
-  test "should post create chinese-russian words with symbols" do
+  test "should create chinese-russian words with symbols" do
     log_in_as(@user)
 
     words = <<~EOM
@@ -177,6 +178,26 @@ class WordLoadersControllerTest < ActionDispatch::IntegrationTest
     assert_equal "привет", @chinese_russian.words.find_by(content: "你好").translation
     assert_equal "спасибо", @chinese_russian.words.find_by(content: "谢谢").translation
     assert_equal "Да", @chinese_russian.words.find_by(content: "是").translation
+  end
+
+  test "should create russian-english words" do
+    log_in_as(@user)
+
+    words = <<~EOM
+    привет - Hello
+    хорошо - good
+    Слово - word
+    в - in
+    для - for
+    EOM
+
+    post word_loaders_path params: { words: words, dictionary_id: @russian_english.id }
+
+    assert_equal "Hello", @russian_english.words.find_by(content: "привет").translation
+    assert_equal "good", @russian_english.words.find_by(content: "хорошо").translation
+    assert_equal "word", @russian_english.words.find_by(content: "Слово").translation
+    assert_equal "in", @russian_english.words.find_by(content: "в").translation
+    assert_equal "for", @russian_english.words.find_by(content: "для").translation
   end
 
   test "shouldn't write any words if errors were" do

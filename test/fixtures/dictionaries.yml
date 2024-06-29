@@ -29,3 +29,8 @@ chinese_russian:
   name: Chinese-Russian
   translation_type: <%= :chinese_russian %>
   user: john
+
+russian_english:
+  name: Russian-English
+  translation_type: <%= :russian_english %>
+  user: john
