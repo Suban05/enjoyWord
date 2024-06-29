@@ -3,6 +3,7 @@
 class DictionariesController < ApplicationController
   include Pagy::Backend
   include TurboReturnable
+  include DictionariesHelper
 
   before_action :authenticate_user!
   before_action :set_dictionary, only: %i[edit update show destroy]

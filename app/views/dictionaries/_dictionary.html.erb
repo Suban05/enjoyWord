@@ -3,7 +3,7 @@
   <div class="inline-flex items-center justify-between w-full max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
     <%= link_to dictionary, class: 'truncate', data: { turbo_frame: '_top' } do %>
       <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white truncate"><%= dictionary.name %></h5>
-      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400"><%= dictionary.translation_type_display %></p>
+      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400"><%= translation_type_display(dictionary) %></p>
     <% end %>
     <%= render 'dictionary_options', dictionary: dictionary %>
   </div>

@@ -2,6 +2,7 @@
 
 class PagesController < ApplicationController
   before_action :authenticate_user!
+  include DictionariesHelper
 
   def home
     @last_words = Word.last_added(current_user)

@@ -2,7 +2,7 @@
     <th scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
         <%= link_to words_path(dictionary_id: row.id), class: "ps-3" do%>
             <div class="text-base font-semibold"><%= truncate(row.name, length: 15) %></div>
-            <div class="font-normal text-gray-500"><%= row.translation_type_display %></div>
+            <div class="font-normal text-gray-500"><%= translation_type_display(row) %></div>
         <% end %>
     </th>
     <td class="px-6 py-4">

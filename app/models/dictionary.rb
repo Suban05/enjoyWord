@@ -22,13 +22,6 @@ class Dictionary < ApplicationRecord
     .limit(5)
   end
 
-  def translation_type_display
-    languages = translation_type.to_s.split("_").map do |s|
-      s.capitalize
-    end
-    languages.join("-")
-  end
-
   def reset_learned_words
     words.each do |word|
       word.learned = false
