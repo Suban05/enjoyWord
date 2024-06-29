@@ -49,7 +49,7 @@ module Lingual
     def language_audio_mappings
       {
         english: EnglishAudio,
-        russian: NoneAudio,
+        russian: RussianAudio,
         spanish: SpanishAudio,
         german:  GermanAudio,
         italian: ItalianAudio,
