@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Languages
   class Chinese < Language
     def word_template

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class LearningSessionService
   def initialize(**args)
     @controller = args[:controller]
@@ -9,10 +11,10 @@ class LearningSessionService
     button_path = nil
     button_data = {}
     if @dictionary.words.count == 0
-      content = I18n.t('learning_session.no_words')
+      content = I18n.t("learning_session.no_words")
     elsif @dictionary.words.not_learned_words.count == 0
-      content = I18n.t('learning_session.words_are_learned')
-      button_title = I18n.t('learning_session.learn_again')
+      content = I18n.t("learning_session.words_are_learned")
+      button_title = I18n.t("learning_session.learn_again")
       button_path = @controller.learn_words_again_path(dictionary_id: @dictionary)
       button_data = { turbo_method: :delete }
     end

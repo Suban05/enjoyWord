@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ExamplesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_word, only: %i[index new]
@@ -14,7 +16,7 @@ class ExamplesController < ApplicationController
   def create
     @example = Example.build(examples_params)
     if @example.save
-      flash.now[:green] = t('example.create.success')
+      flash.now[:green] = t("example.create.success")
     else
       render :new
     end
@@ -25,7 +27,7 @@ class ExamplesController < ApplicationController
 
   def update
     if @example.update(examples_params)
-      flash.now[:green] = t('example.update.success')
+      flash.now[:green] = t("example.update.success")
     else
       render :edit
     end
@@ -36,7 +38,7 @@ class ExamplesController < ApplicationController
 
   def destroy
     @example.destroy
-    flash.now[:green] = t('example.destroy.success')
+    flash.now[:green] = t("example.destroy.success")
   end
 
   private

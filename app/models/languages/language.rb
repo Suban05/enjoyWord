@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Languages
   class Language
     attr_accessor :pronunciation_lib

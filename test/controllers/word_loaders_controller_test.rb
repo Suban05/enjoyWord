@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "test_helper"
 
 class WordLoadersControllerTest < ActionDispatch::IntegrationTest
@@ -13,7 +15,7 @@ class WordLoadersControllerTest < ActionDispatch::IntegrationTest
 
   test "should get new" do
     log_in_as(@user)
-    get new_word_loader_path(params: { dictionary_id:  @english_spanish} )
+    get new_word_loader_path(params: { dictionary_id:  @english_spanish })
     assert_response :success
   end
 
@@ -28,9 +30,9 @@ class WordLoadersControllerTest < ActionDispatch::IntegrationTest
 
     post word_loaders_path params: { words: words, dictionary_id: @english_spanish.id }
 
-    assert_equal 'hola', @english_spanish.words.find_by(content: 'Hello').translation
-    assert_equal 'Bien', @english_spanish.words.find_by(content: 'good').translation
-    assert_equal 'palabra', @english_spanish.words.find_by(content: 'word').translation
+    assert_equal "hola", @english_spanish.words.find_by(content: "Hello").translation
+    assert_equal "Bien", @english_spanish.words.find_by(content: "good").translation
+    assert_equal "palabra", @english_spanish.words.find_by(content: "word").translation
   end
 
   test "should post create english-russian words" do
@@ -46,11 +48,11 @@ class WordLoadersControllerTest < ActionDispatch::IntegrationTest
 
     post word_loaders_path params: { words: words, dictionary_id: @english_russian.id }
 
-    assert_equal 'привет', @english_russian.words.find_by(content: 'Hello').translation
-    assert_equal 'хорошо', @english_russian.words.find_by(content: 'good').translation
-    assert_equal 'Слово', @english_russian.words.find_by(content: 'word').translation
-    assert_equal 'на', @english_russian.words.find_by(content: 'on').translation
-    assert_equal 'артикль', @english_russian.words.find_by(content: 'a').translation
+    assert_equal "привет", @english_russian.words.find_by(content: "Hello").translation
+    assert_equal "хорошо", @english_russian.words.find_by(content: "good").translation
+    assert_equal "Слово", @english_russian.words.find_by(content: "word").translation
+    assert_equal "на", @english_russian.words.find_by(content: "on").translation
+    assert_equal "артикль", @english_russian.words.find_by(content: "a").translation
   end
 
   test "should post create english-russian words with symbols" do
@@ -64,9 +66,9 @@ class WordLoadersControllerTest < ActionDispatch::IntegrationTest
 
     post word_loaders_path params: { words: words, dictionary_id: @english_russian.id }
 
-    assert_equal 'привет, мир!', @english_russian.words.find_by(content: 'Hello, world!').translation
-    assert_equal 'хорошо.', @english_russian.words.find_by(content: 'good').translation
-    assert_equal 'Слово', @english_russian.words.find_by(content: 'word').translation
+    assert_equal "привет, мир!", @english_russian.words.find_by(content: "Hello, world!").translation
+    assert_equal "хорошо.", @english_russian.words.find_by(content: "good").translation
+    assert_equal "Слово", @english_russian.words.find_by(content: "word").translation
   end
 
   test "should post create english-spanish words with symbols" do
@@ -81,10 +83,10 @@ class WordLoadersControllerTest < ActionDispatch::IntegrationTest
 
     post word_loaders_path params: { words: words, dictionary_id: @english_spanish.id }
 
-    assert_equal '¡hola, mundo!', @english_spanish.words.find_by(content: 'Hello, world!').translation
-    assert_equal 'Bien.', @english_spanish.words.find_by(content: 'good').translation
-    assert_equal 'palabra', @english_spanish.words.find_by(content: 'word').translation
-    assert_equal 'y', @english_spanish.words.find_by(content: 'and').translation
+    assert_equal "¡hola, mundo!", @english_spanish.words.find_by(content: "Hello, world!").translation
+    assert_equal "Bien.", @english_spanish.words.find_by(content: "good").translation
+    assert_equal "palabra", @english_spanish.words.find_by(content: "word").translation
+    assert_equal "y", @english_spanish.words.find_by(content: "and").translation
   end
 
   test "should post create english-russian words with dash" do
@@ -96,7 +98,7 @@ class WordLoadersControllerTest < ActionDispatch::IntegrationTest
 
     post word_loaders_path params: { words: words, dictionary_id: @english_russian.id }
 
-    assert_equal "скучающий. I am bored - мне скучно", @english_russian.words.find_by(content: 'bored').translation
+    assert_equal "скучающий. I am bored - мне скучно", @english_russian.words.find_by(content: "bored").translation
   end
 
   test "shouldn't write russian word to the english-spanish dictionary" do
@@ -108,7 +110,7 @@ class WordLoadersControllerTest < ActionDispatch::IntegrationTest
 
     post word_loaders_path params: { words: words, dictionary_id: @english_spanish.id }
 
-    assert_not @english_spanish.words.find_by(content: 'bored')
+    assert_not @english_spanish.words.find_by(content: "bored")
   end
 
   test "shouldn write german words to the german-russian dictionary" do
@@ -123,10 +125,10 @@ class WordLoadersControllerTest < ActionDispatch::IntegrationTest
 
     post word_loaders_path params: { words: words, dictionary_id: @german_russian.id }
 
-    assert @german_russian.words.find_by(content: 'verheiratet')
-    assert @german_russian.words.find_by(content: 'verwitwet')
-    assert @german_russian.words.find_by(content: 'die Arbeit')
-    assert @german_russian.words.find_by(content: 'übrigens')
+    assert @german_russian.words.find_by(content: "verheiratet")
+    assert @german_russian.words.find_by(content: "verwitwet")
+    assert @german_russian.words.find_by(content: "die Arbeit")
+    assert @german_russian.words.find_by(content: "übrigens")
   end
 
   test "shouldn write french words to the french-russian dictionary" do
@@ -140,8 +142,8 @@ class WordLoadersControllerTest < ActionDispatch::IntegrationTest
 
     post word_loaders_path params: { words: words, dictionary_id: @french_russian.id }
 
-    assert @french_russian.words.find_by(content: 'Bonjour')
-    assert @french_russian.words.find_by(content: 'Au revoir')
+    assert @french_russian.words.find_by(content: "Bonjour")
+    assert @french_russian.words.find_by(content: "Au revoir")
     assert @french_russian.words.find_by(content: "S'il vous plaît")
   end
 
@@ -156,8 +158,8 @@ class WordLoadersControllerTest < ActionDispatch::IntegrationTest
 
     post word_loaders_path params: { words: words, dictionary_id: @italian_russian.id }
 
-    assert @italian_russian.words.find_by(content: 'Buongiorno')
-    assert @italian_russian.words.find_by(content: 'Ciao')
+    assert @italian_russian.words.find_by(content: "Buongiorno")
+    assert @italian_russian.words.find_by(content: "Ciao")
     assert @italian_russian.words.find_by(content: "Entrata")
   end
 
@@ -172,9 +174,9 @@ class WordLoadersControllerTest < ActionDispatch::IntegrationTest
 
     post word_loaders_path params: { words: words, dictionary_id: @chinese_russian.id }
 
-    assert_equal 'привет', @chinese_russian.words.find_by(content: '你好').translation
-    assert_equal 'спасибо', @chinese_russian.words.find_by(content: '谢谢').translation
-    assert_equal 'Да', @chinese_russian.words.find_by(content: '是').translation
+    assert_equal "привет", @chinese_russian.words.find_by(content: "你好").translation
+    assert_equal "спасибо", @chinese_russian.words.find_by(content: "谢谢").translation
+    assert_equal "Да", @chinese_russian.words.find_by(content: "是").translation
   end
 
   test "shouldn't write any words if errors were" do
@@ -189,7 +191,7 @@ class WordLoadersControllerTest < ActionDispatch::IntegrationTest
 
     post word_loaders_path params: { words: words, dictionary_id: @english_spanish.id }
 
-    assert_not @english_spanish.words.find_by(content: 'bored')
-    assert_not @english_spanish.words.find_by(content: 'language')
+    assert_not @english_spanish.words.find_by(content: "bored")
+    assert_not @english_spanish.words.find_by(content: "language")
   end
 end

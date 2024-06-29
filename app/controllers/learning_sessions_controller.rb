@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class LearningSessionsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_dictionary, only: %i[new create destroy]
@@ -12,7 +14,7 @@ class LearningSessionsController < ApplicationController
     word = Word.find(params[:word_id])
     answer = params[:answer]
     if word.check_answer(answer)
-      flash[:green] = t('learning_session.correct')
+      flash[:green] = t("learning_session.correct")
     else
       flash[:red] = "#{t('learning_session.incorrect')}. #{t('learning_session.correct')}: #{word.content}"
     end

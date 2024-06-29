@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class WordLoadersController < ApplicationController
   include WordsHelper
   include WordSearchable

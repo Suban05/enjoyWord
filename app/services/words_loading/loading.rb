@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module WordsLoading
   class Loading
     def initialize(**args)

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   include Authentication
   rescue_from ActiveRecord::RecordNotFound, with: :render_404

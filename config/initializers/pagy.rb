@@ -1,1 +1,3 @@
-require 'pagy/extras/countless'
+# frozen_string_literal: true
+
+require "pagy/extras/countless"

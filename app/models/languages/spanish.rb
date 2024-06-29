@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Languages
   class Spanish < Language
     def word_template

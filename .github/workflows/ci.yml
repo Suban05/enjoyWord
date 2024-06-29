@@ -17,6 +17,21 @@ permissions:
   contents: read
 
 jobs:
+  lint:
+      runs-on: ubuntu-latest
+      timeout-minutes: 10
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v4
+
+        - name: Set up Ruby
+          uses: ruby/setup-ruby@v1
+          with:
+            ruby-version: .ruby-version
+            bundler-cache: true
+
+        - name: Lint code for consistent style
+          run: bin/rubocop -f github
   test:
 
     runs-on: ubuntu-latest

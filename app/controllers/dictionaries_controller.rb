@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class DictionariesController < ApplicationController
   include Pagy::Backend
   include TurboReturnable
@@ -16,7 +18,7 @@ class DictionariesController < ApplicationController
   def create
     @dictionary = current_user.dictionaries.build(dictionaries_params)
     if @dictionary.save
-      flash.now[:green] = t('dictionary.create.success')
+      flash.now[:green] = t("dictionary.create.success")
     else
       render :new
     end
@@ -27,7 +29,7 @@ class DictionariesController < ApplicationController
 
   def update
     if @dictionary.update(dictionaries_params)
-      flash.now[:green] = t('dictionary.update.success')
+      flash.now[:green] = t("dictionary.update.success")
     else
       render :edit
     end
@@ -38,7 +40,7 @@ class DictionariesController < ApplicationController
 
   def destroy
     @dictionary.destroy
-    flash.now[:green] = t('dictionary.destroy.success')
+    flash.now[:green] = t("dictionary.destroy.success")
   end
 
   private

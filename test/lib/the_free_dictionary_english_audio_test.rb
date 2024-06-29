@@ -1,13 +1,15 @@
-require 'test_helper'
+# frozen_string_literal: true
+
+require "test_helper"
 
 class TheFreeDictionaryEnglishAudioTest < ActiveSupport::TestCase
-  test 'should get empty pronunciation' do
-    statement = '0120324'
+  test "should get empty pronunciation" do
+    statement = "0120324"
     http_module = Class.new do
       def self.get_response(url)
         Class.new do
           def self.body
-            ''
+            ""
           end
         end
       end
@@ -19,11 +21,11 @@ class TheFreeDictionaryEnglishAudioTest < ActiveSupport::TestCase
       config.language = "en"
       config.region = "US"
     end
-    assert_equal '', result[:source]
+    assert_equal "", result[:source]
   end
 
-  test 'should get english pronunciation of word' do
-    statement = 'glossary'
+  test "should get english pronunciation of word" do
+    statement = "glossary"
     http_module = Class.new do
       def self.get_response(url)
         Class.new do
@@ -49,8 +51,8 @@ class TheFreeDictionaryEnglishAudioTest < ActiveSupport::TestCase
     assert_equal "ˈɡlɒsərɪ", result[:transcription]
   end
 
-  test 'should get english transcription of word if html has parenthesis' do
-    statement = 'affordable'
+  test "should get english transcription of word if html has parenthesis" do
+    statement = "affordable"
     http_module = Class.new do
       def self.get_response(url)
         Class.new do

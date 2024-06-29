@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module TheFreeDictionary
   class GermanAudio
     def pronunciation(statement)

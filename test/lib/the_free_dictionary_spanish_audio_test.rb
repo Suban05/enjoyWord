@@ -1,8 +1,10 @@
-require 'test_helper'
+# frozen_string_literal: true
+
+require "test_helper"
 
 class TheFreeDictionarySpanishAudioTest < ActiveSupport::TestCase
-  test 'should get spanish pronunciation of word' do
-    statement = 'palabra'
+  test "should get spanish pronunciation of word" do
+    statement = "palabra"
     http_module = Class.new do
       def self.get_response(url)
         Class.new do
@@ -28,8 +30,8 @@ class TheFreeDictionarySpanishAudioTest < ActiveSupport::TestCase
     assert_not result[:transcription]
   end
 
-  test 'should get empty pronunciation of statement' do
-    statement = 'lleno de'
+  test "should get empty pronunciation of statement" do
+    statement = "lleno de"
     http_module = Class.new do
       def self.get_response(url)
         Class.new do
@@ -54,8 +56,8 @@ class TheFreeDictionarySpanishAudioTest < ActiveSupport::TestCase
     assert_equal "", result[:source]
   end
 
-  test 'should get pronunciation no-ascii symbols' do
-    statement = 'orquídea'
+  test "should get pronunciation no-ascii symbols" do
+    statement = "orquídea"
     http_module = Class.new do
       def self.get_response(url)
         Class.new do
@@ -80,8 +82,8 @@ class TheFreeDictionarySpanishAudioTest < ActiveSupport::TestCase
     assert_equal "https://img2.tfd.com/pron/mp3/es/EU/dk/dkslsgsgstnjdod5dtgk.mp3", result[:source]
   end
 
-  test 'should get pronunciation whith help of regex' do
-    statement = 'orquídea'
+  test "should get pronunciation whith help of regex" do
+    statement = "orquídea"
     http_module = Class.new do
       def self.get_response(url)
         Class.new do

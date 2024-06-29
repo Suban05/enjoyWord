@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Dictionary < ApplicationRecord
   include Lingual
   include Orderable
@@ -16,7 +18,7 @@ class Dictionary < ApplicationRecord
     )
     .where(user_id: user.id)
     .group(:id, :name, :translation_type)
-    .order('words_count DESC')
+    .order("words_count DESC")
     .limit(5)
   end
 

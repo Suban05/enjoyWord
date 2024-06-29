@@ -1,3 +1,7 @@
+# frozen_string_literal: true
+
+require "net/http"
+
 module TheFreeDictionary
   class Pronunciation
     attr_accessor :statement, :http_module, :hostname, :language, :region
@@ -20,7 +24,7 @@ module TheFreeDictionary
         transcription_data = nil
       end
       if audio_data.nil?
-        source = ''
+        source = ""
       else
         source = "https://img2.tfd.com/pron/mp3/#{audio_data[0]}.mp3"
       end

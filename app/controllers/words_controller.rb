@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class WordsController < ApplicationController
   include Pagy::Backend
   include WordsHelper
@@ -21,7 +23,7 @@ class WordsController < ApplicationController
   def create
     @word = Word.build(words_params)
     if @word.save
-      flash.now[:green] = t('word.create.success')
+      flash.now[:green] = t("word.create.success")
     else
       render :new
     end
@@ -33,7 +35,7 @@ class WordsController < ApplicationController
 
   def update
     if @word.update(words_params)
-      flash.now[:green] = t('word.update.success')
+      flash.now[:green] = t("word.update.success")
     else
       render :edit
     end
@@ -45,7 +47,7 @@ class WordsController < ApplicationController
 
   def destroy
     @word.destroy
-    flash.now[:green] = t('word.destroy.success')
+    flash.now[:green] = t("word.destroy.success")
   end
 
   private

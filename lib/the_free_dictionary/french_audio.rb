@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module TheFreeDictionary
   class FrenchAudio
     def pronunciation(statement)

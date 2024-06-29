@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Lingual
   extend ActiveSupport::Concern
   include TheFreeDictionary
@@ -24,7 +26,7 @@ module Lingual
   private
 
   def available_languages_data(mappings)
-    languages = self.translation_type.to_s.split('_')
+    languages = self.translation_type.to_s.split("_")
     {
       first_language: mappings[languages.first.to_sym],
       second_language: mappings[languages.second.to_sym]

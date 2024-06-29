@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 source "https://rubygems.org"
 
-ruby File.read('.ruby-version').strip
+ruby File.read(".ruby-version").strip
 
 gem "rails", "~> 7.1.3", ">= 7.1.3.2"
 gem "sprockets-rails"
@@ -16,7 +18,7 @@ gem "tzinfo-data", platforms: %i[ windows jruby ]
 gem "bootsnap", require: false
 
 # Search
-gem 'ransack'
+gem "ransack"
 
 # Other
 gem "dotenv-rails"
