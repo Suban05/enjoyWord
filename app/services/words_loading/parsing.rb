@@ -1,11 +1,11 @@
 module WordsLoading
-  class Parser
-    def initialize(dictionary, words)
-      @dictionary = dictionary
-      @words = words
+  class Parsing
+    def initialize(**args)
+      @dictionary = args[:dictionary]
+      @words = args[:words]
     end
 
-    def parse
+    def call
       languages = @dictionary.available_languages
       first_template = languages[:first_language].new.word_template
       second_template = languages[:second_language].new.word_template

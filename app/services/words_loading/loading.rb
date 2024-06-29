@@ -1,11 +1,11 @@
 module WordsLoading
-  class Loader
-    def initialize(dictionary, words)
-      @dictionary = dictionary
-      @words = words
+  class Loading
+    def initialize(**args)
+      @dictionary = args[:dictionary]
+      @words = args[:words]
     end
 
-    def load
+    def call
       result = []
       @words.each do |pair|
         word = @dictionary.words.build(content: pair.first.strip, translation: pair.second.strip)

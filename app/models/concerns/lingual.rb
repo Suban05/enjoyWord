@@ -9,7 +9,8 @@ module Lingual
 
   # @param words [String]
   def write_words(words)
-    WordsLoading::Loader.new(self, WordsLoading::Parser.new(self, words).parse).load
+    word_pairs = WordsLoading::Parsing.new(dictionary: self, words: words).call
+    WordsLoading::Loading.new(dictionary: self, words: word_pairs).call
   end
 
   def available_languages

@@ -1,5 +1,5 @@
 class LearningSessionService
-  def initialize(args)
+  def initialize(**args)
     @controller = args[:controller]
     @dictionary = args[:dictionary]
   end
