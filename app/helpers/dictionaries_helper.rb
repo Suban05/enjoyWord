@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
 module DictionariesHelper
-
   def translation_types_display
-    Dictionary.translation_types.keys.map { |type| [friendly_translation_type(type), type] }
+    Dictionary.translation_types.keys.map { |type| [ friendly_translation_type(type), type ] }
   end
 
   def translation_type_display(dictionary)
