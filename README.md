@@ -18,10 +18,10 @@ EnjoyWord is a simple application for creating and managing your own dictionarie
 * French
 * Italian
 * Russian
+* Chinese
 
 ## Highlights
 
-* Audio pronunciation is available for all languages except Russian.
 * Audio pronunciation is available only for words. Pronunciation of phrases, examples, and other content is not supported.
 
 ## Setup Guide
