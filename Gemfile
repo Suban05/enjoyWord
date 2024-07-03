@@ -23,7 +23,7 @@ gem "ransack"
 # Other
 gem "dotenv-rails"
 gem "pagy", "~> 8.2"
-gem "the-free-dictionary", git: 'https://github.com/Suban05/the-free-dictionary'
+gem "the-free-dictionary", git: "https://github.com/Suban05/the-free-dictionary"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ]
