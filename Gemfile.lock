@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/Suban05/the-free-dictionary
+  revision: e58bf99af95f1b32aac71f552a4b284299a4f27f
+  specs:
+    the-free-dictionary (0.0.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -320,6 +326,7 @@ DEPENDENCIES
   sprockets-rails
   stimulus-rails
   tailwindcss-rails
+  the-free-dictionary!
   turbo-rails
   tzinfo-data
   web-console

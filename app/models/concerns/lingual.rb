@@ -2,7 +2,6 @@
 
 module Lingual
   extend ActiveSupport::Concern
-  include TheFreeDictionary
 
   included do
     validates :name, :translation_type, presence: true
@@ -48,13 +47,13 @@ module Lingual
 
     def language_audio_mappings
       {
-        english: EnglishAudio,
-        russian: RussianAudio,
-        spanish: SpanishAudio,
-        german:  GermanAudio,
-        italian: ItalianAudio,
-        french:  FrenchAudio,
-        chinese: ChineseAudio
+        english: TheFreeDictionary::English,
+        russian: TheFreeDictionary::Russian,
+        spanish: TheFreeDictionary::Spanish,
+        german:  TheFreeDictionary::German,
+        italian: TheFreeDictionary::Italian,
+        french:  TheFreeDictionary::French,
+        chinese: TheFreeDictionary::Chinese
       }
     end
 

@@ -8,8 +8,8 @@ module Languages
       @pronunciation_lib = pronunciation_lib
     end
 
-    def pronunciation(word)
-      @pronunciation_lib.pronunciation(word.content)
+    def find(word)
+      @pronunciation_lib.find(word.content)
     end
   end
 end
