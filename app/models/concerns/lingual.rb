@@ -70,7 +70,7 @@ module Lingual
           types[first_second_lang.to_sym] = first_second_lang
         end
       end
-      types
+      types.sort.to_h
     end
   end
 end
