@@ -15,9 +15,9 @@ class WordLoadersController < ApplicationController
     words = params[:words]
     @words = @dictionary.write_words(words)
     if @words.count.positive?
-      flash.now[:green] = "#{@words.count} words successfully loaded"
+      flash.now[:green] = t("word_loader.create.success", count: @words.count)
     else
-      flash.now[:red] = "#{@words.count} words loaded. Please, check your words"
+      flash.now[:red] = t("word_loader.create.unsuccess", count: @words.count)
     end
   end
 

@@ -1,0 +1,5 @@
+en:
+  word_loader:
+    create:
+      success: "Successfully loaded: %{count}"
+      unsuccess: "Not all words have been successfully uploaded. Loaded: %{count}. Please, check your words"
