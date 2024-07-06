@@ -13,6 +13,6 @@ module ApplicationHelper
   end
 
   def data_of_delete
-    { turbo_method: :delete, turbo_confirm: t('are_you_sure') }
+    { turbo_method: :delete, turbo_confirm: t("are_you_sure") }
   end
 end
