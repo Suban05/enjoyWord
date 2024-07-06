@@ -4,7 +4,8 @@
     <%= link_to dictionary, class: 'truncate', data: { turbo_frame: '_top' } do %>
       <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white truncate"><%= dictionary.name %></h5>
       <p class="mb-3 font-normal text-gray-700 dark:text-gray-400"><%= translation_type_display(dictionary) %></p>
-    <% end %>
+      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400"><%= words_count(dictionary) %></p>
+      <% end %>
     <%= render 'dictionary_options', dictionary: dictionary %>
   </div>
 

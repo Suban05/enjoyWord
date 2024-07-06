@@ -9,6 +9,10 @@ module DictionariesHelper
     friendly_translation_type(dictionary.translation_type)
   end
 
+  def words_count(dictionary)
+    t("dictionary.words_total", count: dictionary.words.count)
+  end
+
   private
 
   def friendly_translation_type(translation_type)

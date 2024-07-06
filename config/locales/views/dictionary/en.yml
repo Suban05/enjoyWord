@@ -18,3 +18,4 @@ en:
     back_to_dictionaries: Back
     words_count: Words count
     updated_at: Updated
+    words_total: "Total: %{count}"
