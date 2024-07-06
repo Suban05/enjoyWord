@@ -11,4 +11,8 @@ module ApplicationHelper
     return t("empty_for_now") if date.nil?
     "#{time_ago_in_words(date)} ago"
   end
+
+  def data_of_delete
+    { turbo_method: :delete, turbo_confirm: t('are_you_sure') }
+  end
 end
