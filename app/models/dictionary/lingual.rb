@@ -2,6 +2,7 @@
 
 module Dictionary::Lingual
   extend ActiveSupport::Concern
+  include Dictionary::Languages
 
   included do
     validates :name, :translation_type, presence: true
@@ -35,13 +36,13 @@ module Dictionary::Lingual
   class_methods do
     def language_mappings
       {
-        english: Languages::English,
-        russian: Languages::Russian,
-        spanish: Languages::Spanish,
-        german:  Languages::German,
-        italian: Languages::Italian,
-        french:  Languages::French,
-        chinese: Languages::Chinese
+        english: English,
+        russian: Russian,
+        spanish: Spanish,
+        german:  German,
+        italian: Italian,
+        french:  French,
+        chinese: Chinese
       }
     end
 

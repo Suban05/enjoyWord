@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Languages
+module Dictionary::Languages
   class French < Language
     def word_template
       /[a-zA-ZàâçéèêëîïôûùüÿñæœÀÂÇÉÈÊËÎÏÔÛÙÜŸÑÆŒ]+/
