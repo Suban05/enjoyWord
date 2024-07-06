@@ -3,6 +3,7 @@
 class Dictionary < ApplicationRecord
   include Lingual
   include Orderable
+  include Loadable
 
   belongs_to :user
   has_many :words, dependent: :destroy

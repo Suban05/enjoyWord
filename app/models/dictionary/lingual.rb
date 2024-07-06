@@ -9,12 +9,6 @@ module Dictionary::Lingual
     enum translation_type: translation_types
   end
 
-  # @param words [String]
-  def write_words(words)
-    word_pairs = WordsLoading::Parsing.new(dictionary: self, words: words).call
-    WordsLoading::Loading.new(dictionary: self, words: word_pairs).call
-  end
-
   def available_languages
     available_languages_data(self.class.language_mappings)
   end
