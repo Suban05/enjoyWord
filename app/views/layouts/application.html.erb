@@ -17,13 +17,20 @@
   </head>
 
   <body>
+    <% main_class = logged_in? ? "p-4 sm:ml-64" : "container mx-auto mt-28 px-5 flex" %>
     <% if logged_in? %>
-      <%= render 'layouts/sidebar' %>
-      <% main_class = "p-4 sm:ml-64" %>
-    <% else %>
-      <% main_class = "container mx-auto mt-28 px-5 flex" %>
+      <div class="hidden sm:block">
+        <%= render 'layouts/sidebar/full' %>
+      </div>
     <% end %>
     <%= tag.main class: main_class do %>
       <%= yield %>
     <% end %>
+    <% if logged_in? %>
+      <div class="block sm:hidden">
+        <div class="mb-80px"></div>
+        <%= render 'layouts/sidebar/mobile' %>
+      </div>
+    <% end %>
+  </body>
 </html>
