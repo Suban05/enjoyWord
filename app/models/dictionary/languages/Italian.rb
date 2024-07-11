@@ -5,5 +5,9 @@ module Dictionary::Languages
     def word_template
       /[a-zA-ZàèéìíîòóùúÀÈÉÌÍÎÒÓÙÚ]+/
     end
+
+    def name
+      I18n.t("dictionary.languages.italian")
+    end
   end
 end

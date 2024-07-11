@@ -5,5 +5,9 @@ module Dictionary::Languages
     def word_template
       /[а-яА-Я]+/
     end
+
+    def name
+      I18n.t("dictionary.languages.russian")
+    end
   end
 end

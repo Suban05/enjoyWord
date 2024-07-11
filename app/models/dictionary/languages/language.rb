@@ -11,5 +11,9 @@ module Dictionary::Languages
     def find(word)
       @pronunciation_lib.find(word.content)
     end
+
+    def name
+      ''
+    end
   end
 end
