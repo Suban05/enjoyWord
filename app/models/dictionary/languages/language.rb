@@ -13,7 +13,7 @@ module Dictionary::Languages
     end
 
     def name
-      ''
+      ""
     end
   end
 end
