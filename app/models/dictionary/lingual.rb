@@ -52,6 +52,10 @@ module Dictionary::Lingual
       }
     end
 
+    def language_by_id(id)
+      language_mappings[id] || Language
+    end
+
     private
 
     def translation_types

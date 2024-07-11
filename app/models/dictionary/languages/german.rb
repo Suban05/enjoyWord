@@ -5,5 +5,9 @@ module Dictionary::Languages
     def word_template
       /[a-zA-ZäöüßÄÖÜ]+/
     end
+
+    def name
+      I18n.t("dictionary.languages.german")
+    end
   end
 end
