@@ -3,6 +3,10 @@
 require "test_helper"
 
 class DictionaryTest < ActiveSupport::TestCase
+  setup do
+    @dictionary = dictionaries(:english_russian)
+  end
+
   test "checks translation_types" do
     result = Dictionary.translation_types
     assert result.value?("chinese_english")
@@ -55,31 +59,15 @@ class DictionaryTest < ActiveSupport::TestCase
     assert result.value?("spanish_russian")
   end
 
-  test "gets language class by id" do
-    result = Dictionary.language_by_id(:english)
-    assert_equal Dictionary::Languages::English, result
-
-    result = Dictionary.language_by_id(:chinese)
-    assert_equal Dictionary::Languages::Chinese, result
-
-    result = Dictionary.language_by_id(:russian)
-    assert_equal Dictionary::Languages::Russian, result
-
-    result = Dictionary.language_by_id(:spanish)
-    assert_equal Dictionary::Languages::Spanish, result
-
-    result = Dictionary.language_by_id(:german)
-    assert_equal Dictionary::Languages::German, result
-
-    result = Dictionary.language_by_id(:italian)
-    assert_equal Dictionary::Languages::Italian, result
-
-    result = Dictionary.language_by_id(:french)
-    assert_equal Dictionary::Languages::French, result
+  test "gets available languages of dictionary" do
+    languages = @dictionary.available_languages
+    assert_equal Dictionary::Languages::English, languages[:first_language]
+    assert_equal Dictionary::Languages::Russian, languages[:second_language]
   end
 
-  test "doesn't get language class by id" do
-    result = Dictionary.language_by_id(:test)
-    assert_equal Dictionary::Languages::Language, result
+  test "gets available external languages of dictionary" do
+    languages = @dictionary.available_languages_audio
+    assert_equal TheFreeDictionary::English, languages[:first_language]
+    assert_equal TheFreeDictionary::Russian, languages[:second_language]
   end
 end
