@@ -18,7 +18,6 @@ module Dictionary::Lingual
   end
 
   class_methods do
-    
     private
 
     def translation_types
