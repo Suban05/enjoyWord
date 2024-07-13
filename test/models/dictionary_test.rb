@@ -56,30 +56,30 @@ class DictionaryTest < ActiveSupport::TestCase
   end
 
   test "gets language class by id" do
-    result = Dictionary.language_by_id(:english)
+    result = Dictionary::Language.find_by_id(:english)
     assert_equal Dictionary::Languages::English, result
 
-    result = Dictionary.language_by_id(:chinese)
+    result = Dictionary::Language.find_by_id(:chinese)
     assert_equal Dictionary::Languages::Chinese, result
 
-    result = Dictionary.language_by_id(:russian)
+    result = Dictionary::Language.find_by_id(:russian)
     assert_equal Dictionary::Languages::Russian, result
 
-    result = Dictionary.language_by_id(:spanish)
+    result = Dictionary::Language.find_by_id(:spanish)
     assert_equal Dictionary::Languages::Spanish, result
 
-    result = Dictionary.language_by_id(:german)
+    result = Dictionary::Language.find_by_id(:german)
     assert_equal Dictionary::Languages::German, result
 
-    result = Dictionary.language_by_id(:italian)
+    result = Dictionary::Language.find_by_id(:italian)
     assert_equal Dictionary::Languages::Italian, result
 
-    result = Dictionary.language_by_id(:french)
+    result = Dictionary::Language.find_by_id(:french)
     assert_equal Dictionary::Languages::French, result
   end
 
   test "doesn't get language class by id" do
-    result = Dictionary.language_by_id(:test)
+    result = Dictionary::Language.find_by_id(:test)
     assert_equal Dictionary::Languages::Language, result
   end
 end

@@ -10,56 +10,19 @@ module Dictionary::Lingual
   end
 
   def available_languages
-    available_languages_data(self.class.language_mappings)
+    Dictionary::TranslationType.new(translation_type).pairs
   end
 
   def available_languages_audio
-    available_languages_data(self.class.language_audio_mappings)
-  end
-
-  private
-
-  def available_languages_data(mappings)
-    languages = self.translation_type.to_s.split("_")
-    {
-      first_language: mappings[languages.first.to_sym],
-      second_language: mappings[languages.second.to_sym]
-    }
+    Dictionary::TranslationType.new(translation_type).pairs(Language.external)
   end
 
   class_methods do
-    def language_mappings
-      {
-        english: English,
-        russian: Russian,
-        spanish: Spanish,
-        german:  German,
-        italian: Italian,
-        french:  French,
-        chinese: Chinese
-      }
-    end
-
-    def language_audio_mappings
-      {
-        english: TheFreeDictionary::English,
-        russian: TheFreeDictionary::Russian,
-        spanish: TheFreeDictionary::Spanish,
-        german:  TheFreeDictionary::German,
-        italian: TheFreeDictionary::Italian,
-        french:  TheFreeDictionary::French,
-        chinese: TheFreeDictionary::Chinese
-      }
-    end
-
-    def language_by_id(id)
-      language_mappings[id] || Language
-    end
-
+    
     private
 
     def translation_types
-      languages = language_mappings.keys
+      languages = Language.available.keys
       types = {}
       languages.each do |first|
         languages.each do |second|
