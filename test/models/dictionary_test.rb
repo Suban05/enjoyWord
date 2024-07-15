@@ -66,7 +66,7 @@ class DictionaryTest < ActiveSupport::TestCase
   end
 
   test "gets available external languages of dictionary" do
-    languages = @dictionary.available_languages_audio
+    languages = @dictionary.external
     assert_equal TheFreeDictionary::English, languages[:first_language]
     assert_equal TheFreeDictionary::Russian, languages[:second_language]
   end

@@ -13,7 +13,7 @@ module Dictionary::Lingual
     Dictionary::TranslationType.new(translation_type).pairs
   end
 
-  def available_languages_audio
+  def external
     Dictionary::TranslationType.new(translation_type).pairs(Dictionary.external)
   end
 
