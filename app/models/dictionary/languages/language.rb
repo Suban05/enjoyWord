@@ -24,7 +24,7 @@ module Dictionary::Languages
       @external_dictionary = external_dictionary
     end
 
-    def find(word)
+    def external_data(word)
       @external_dictionary.find(word.content)
     end
 
