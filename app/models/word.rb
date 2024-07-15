@@ -18,9 +18,9 @@ class Word < ApplicationRecord
     false
   end
 
-  def pronunciation
+  def external_data
     language_class = self.dictionary.available_languages[:first_language]
-    language = language_class.new(self.dictionary.available_languages_audio[:first_language].new)
+    language = language_class.new(self.dictionary.external[:first_language].new)
     language.external_data(self)
   end
 

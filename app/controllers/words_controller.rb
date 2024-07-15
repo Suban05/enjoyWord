@@ -42,7 +42,7 @@ class WordsController < ApplicationController
   end
 
   def show
-    @pronunciation_data = @word.pronunciation
+    @pronunciation_data = @word.external_data
   end
 
   def destroy
