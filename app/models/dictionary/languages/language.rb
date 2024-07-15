@@ -2,7 +2,7 @@
 
 module Dictionary::Languages
   class Language
-    attr_accessor :pronunciation_lib
+    attr_accessor :external_dictionary
 
     def self.find_by_id(id)
       available[id] || Language
@@ -20,24 +20,12 @@ module Dictionary::Languages
       }
     end
 
-    def self.external
-      {
-        english: TheFreeDictionary::English,
-        russian: TheFreeDictionary::Russian,
-        spanish: TheFreeDictionary::Spanish,
-        german:  TheFreeDictionary::German,
-        italian: TheFreeDictionary::Italian,
-        french:  TheFreeDictionary::French,
-        chinese: TheFreeDictionary::Chinese
-      }
-    end
-
-    def initialize(pronunciation_lib = nil)
-      @pronunciation_lib = pronunciation_lib
+    def initialize(external_dictionary = nil)
+      @external_dictionary = external_dictionary
     end
 
     def find(word)
-      @pronunciation_lib.find(word.content)
+      @external_dictionary.find(word.content)
     end
 
     def name

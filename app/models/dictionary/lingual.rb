@@ -14,10 +14,22 @@ module Dictionary::Lingual
   end
 
   def available_languages_audio
-    Dictionary::TranslationType.new(translation_type).pairs(Language.external)
+    Dictionary::TranslationType.new(translation_type).pairs(Dictionary.external)
   end
 
   class_methods do
+    def external
+      {
+        english: TheFreeDictionary::English,
+        russian: TheFreeDictionary::Russian,
+        spanish: TheFreeDictionary::Spanish,
+        german:  TheFreeDictionary::German,
+        italian: TheFreeDictionary::Italian,
+        french:  TheFreeDictionary::French,
+        chinese: TheFreeDictionary::Chinese
+      }
+    end
+
     private
 
     def translation_types
