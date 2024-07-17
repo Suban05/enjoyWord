@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/Suban05/the-free-dictionary
-  revision: 0fdbc9f070013652665938106d0adea41792a345
+  revision: f117c624d267e67aed0133f1d65b83f11924150a
   specs:
     the-free-dictionary (0.0.3)
 
@@ -172,7 +172,7 @@ GEM
     puma (6.4.2)
       nio4r (~> 2.0)
     racc (1.8.0)
-    rack (3.1.6)
+    rack (3.1.7)
     rack-session (2.0.0)
       rack (>= 3.0.0)
     rack-test (2.1.0)
@@ -211,7 +211,7 @@ GEM
       zeitwerk (~> 2.6)
     rainbow (3.1.1)
     rake (13.2.1)
-    ransack (4.1.1)
+    ransack (4.2.0)
       activerecord (>= 6.1.5)
       activesupport (>= 6.1.5)
       i18n
@@ -222,7 +222,7 @@ GEM
     regexp_parser (2.9.2)
     reline (0.5.9)
       io-console (~> 0.5)
-    rexml (3.3.1)
+    rexml (3.3.2)
       strscan
     rubocop (1.65.0)
       json (~> 2.3)
@@ -253,12 +253,12 @@ GEM
       rubocop-minitest
       rubocop-performance
       rubocop-rails
-    ruby-lsp (0.17.6)
+    ruby-lsp (0.17.7)
       language_server-protocol (~> 3.17.0)
       prism (>= 0.29.0, < 0.31)
       rbs (>= 3, < 4)
       sorbet-runtime (>= 0.5.10782)
-    ruby-lsp-rails (0.3.8)
+    ruby-lsp-rails (0.3.10)
       ruby-lsp (>= 0.17.2, < 0.18.0)
     ruby-progressbar (1.13.0)
     rubyzip (2.3.2)
@@ -268,7 +268,7 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
-    sorbet-runtime (0.5.11478)
+    sorbet-runtime (0.5.11481)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -280,9 +280,9 @@ GEM
       railties (>= 6.0.0)
     stringio (3.1.1)
     strscan (3.1.0)
-    tailwindcss-rails (2.6.1-x64-mingw-ucrt)
+    tailwindcss-rails (2.6.3-x64-mingw-ucrt)
       railties (>= 7.0.0)
-    tailwindcss-rails (2.6.1-x86_64-linux)
+    tailwindcss-rails (2.6.3-x86_64-linux)
       railties (>= 7.0.0)
     thor (1.3.1)
     timeout (0.4.1)
