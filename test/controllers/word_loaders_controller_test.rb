@@ -43,6 +43,7 @@ class WordLoadersControllerTest < ActionDispatch::IntegrationTest
     Hello - привет
     good - хорошо
     word - Слово
+    Attitude [ˈætɪˌtjuːd] — отношение
     on - на
     a - артикль
     EOM
@@ -54,6 +55,7 @@ class WordLoadersControllerTest < ActionDispatch::IntegrationTest
     assert_equal "Слово", @english_russian.words.find_by(content: "word").translation
     assert_equal "на", @english_russian.words.find_by(content: "on").translation
     assert_equal "артикль", @english_russian.words.find_by(content: "a").translation
+    assert_equal "отношение", @english_russian.words.find_by(content: "Attitude").translation
   end
 
   test "should create english-russian words with symbols" do
@@ -203,6 +205,7 @@ class WordLoadersControllerTest < ActionDispatch::IntegrationTest
     post word_loaders_path params: { words: words, dictionary_id: @english_russian.id }
 
     assert_equal "отношение", @english_russian.words.find_by(content: "Attitude").translation
+    assert_equal "гадкий, гнусный, презренный", @english_russian.words.find_by(content: "despicable").translation
   end
 
   test "loads pair with underscore and transcription" do
