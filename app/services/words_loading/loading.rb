@@ -10,7 +10,7 @@ module WordsLoading
     def call
       result = []
       @words.each do |pair|
-        word = @dictionary.words.build(content: pair.first.strip, translation: pair.second.strip)
+        word = @dictionary.words.build(content: pair.first.gsub(/\[.*?\]/, "").strip, translation: pair.second.strip)
         if word.save
           result << word
         end
