@@ -180,6 +180,42 @@ class WordLoadersControllerTest < ActionDispatch::IntegrationTest
     assert_equal "Да", @chinese_russian.words.find_by(content: "是").translation
   end
 
+  test "loads pair with transcription" do
+    log_in_as(@user)
+
+    words = <<~EOM
+    Attitude [ˈætɪˌtjuːd] - отношение
+    EOM
+
+    post word_loaders_path params: { words: words, dictionary_id: @english_russian.id }
+
+    assert_equal "отношение", @english_russian.words.find_by(content: "Attitude").translation
+  end
+
+  test "loads pair with underscore and transcription" do
+    log_in_as(@user)
+
+    words = <<~EOM
+    Attitude [ˈætɪˌtjuːd] — отношение
+    EOM
+
+    post word_loaders_path params: { words: words, dictionary_id: @english_russian.id }
+
+    assert_equal "отношение", @english_russian.words.find_by(content: "Attitude").translation
+  end
+
+  test "loads pair without separator" do
+    log_in_as(@user)
+
+    words = <<~EOM
+    Attitude [ˈætɪˌtjuːd] отношение
+    EOM
+
+    post word_loaders_path params: { words: words, dictionary_id: @english_russian.id }
+
+    assert_equal "отношение", @english_russian.words.find_by(content: "Attitude").translation
+  end
+
   test "should create russian-english words" do
     log_in_as(@user)
 
