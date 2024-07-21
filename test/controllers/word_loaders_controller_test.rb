@@ -192,6 +192,18 @@ class WordLoadersControllerTest < ActionDispatch::IntegrationTest
     assert_equal "отношение", @english_russian.words.find_by(content: "Attitude").translation
   end
 
+  test "loads pair with underscore" do
+    log_in_as(@user)
+
+    words = <<~EOM
+    Attitude — отношение
+    EOM
+
+    post word_loaders_path params: { words: words, dictionary_id: @english_russian.id }
+
+    assert_equal "отношение", @english_russian.words.find_by(content: "Attitude").translation
+  end
+
   test "loads pair with underscore and transcription" do
     log_in_as(@user)
 
