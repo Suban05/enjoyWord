@@ -12,7 +12,7 @@ english_russian:
 
 german_russian:
   name: German-Russian
-  translation_type: <%= :english_russian %>
+  translation_type: <%= :german_russian %>
   user: john
 
 french_russian:
