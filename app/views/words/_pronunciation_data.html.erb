@@ -1,5 +1,5 @@
 <% unless local_assigns[:transcription].empty? %>
-  <div class="ml-2 mt-2"><%= "[#{local_assigns[:transcription]}]" %></div>
+  <div class="ml-2 mt-2"><%= sanitize("[#{local_assigns[:transcription]}]", tags: %w(i)) %></div>
 <% end %>
 <% unless local_assigns[:sound].empty? %>
   <%= tag.span id: 'sound-word', 'sound-src': local_assigns[:sound], class: 'ml-2 mt-2 cursor-pointer' do %>
