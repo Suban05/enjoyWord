@@ -1,0 +1,29 @@
+<h1 class="font-bold text-4xl"><%= t('profile') %></h1>
+<%= form_with(url: settings_path, class: "contents") do |form| %>
+  <div class="my-5">
+    <%= form.label :email %>
+    <%= form.text_field :email, value: @user.email, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :name %>
+    <%= form.text_field :name, value: @user.name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :favourite_language, class: "block mb-2 text-gray-900 dark:text-white" %>
+    <%= form.select :favourite_language,
+        Dictionary::Languages::Language.available.keys.map { |type| [ Dictionary::Language.find_by_id(type.to_sym).new.name.capitalize, type ] },
+        { include_blank: true, selected: @user.favourite_language },
+        class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full"
+    %>
+  </div>
+
+  <div class="my-5">
+    <%= link_to 'Change password', edit_user_path(@user) %>
+  </div>
+
+  <div class="inline">
+    <%= form.submit t('save'), class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+  </div>
+<% end %>
