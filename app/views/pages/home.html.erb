@@ -16,6 +16,8 @@ more_detailed_path: dictionaries_path,
 more_detailed_title: t('pages.home.all_dictionaries')
 %>
 
-<div class="mb-4"></div>
-<h1 class="font-bold text-4xl mb-4"><%= 'Word of the day' %></h1>
-<%= render 'words/show_word', word: @word_of_day, pronunciation_data: @pronunciation_data %>
+<% unless @pronunciation_data[:word].empty? %>
+  <div class="mb-4"></div>
+  <h1 class="font-bold text-4xl mb-4"><%= 'Word of the day' %></h1>
+  <%= render 'words/show_word', word: @word_of_day, pronunciation_data: @pronunciation_data %>
+<% end %>
