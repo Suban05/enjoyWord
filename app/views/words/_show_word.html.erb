@@ -1,0 +1,14 @@
+<div class="mx-auto" data-controller="words">
+  <% unless word.dictionary.nil? %>
+    <%= link_to sanitize("&larr; #{t('word.back_to_words')}"), word.dictionary %>
+  <% end %>
+  <div class="mt-3"></div>
+  <div class="flex items-center">
+    <h1 class="font-bold text-4xl"><%= word.content %></h1>
+    <%= render 'words/pronunciation_data', pronunciation_data %>
+  </div>
+  <p class="mt-4 mb-4"><%= word.translation %></p>
+  <% if word.persisted? %>
+    <%= render 'shared/child_items', id: 'examples', src: examples_path(word_id: word) %>
+  <% end %>
+</div>
