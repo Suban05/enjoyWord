@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   resources :examples
   resources :word_loaders, only: [ :new, :create ]
   resources :learning_sessions, only: [ :new, :create, :destroy ]
-
+  resources :settings, only: [ :new, :create ]
   # Render dynamic PWA files from app/views/pwa/*
   get "service-worker" => "pwa#service_worker", as: :pwa_service_worker
   get "manifest" => "pwa#manifest", as: :pwa_manifest

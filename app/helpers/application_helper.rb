@@ -15,4 +15,10 @@ module ApplicationHelper
   def data_of_delete
     { turbo_method: :delete, turbo_confirm: t("are_you_sure") }
   end
+
+  def languages_display
+    Dictionary::Languages::Language.available.keys.map do |type|
+      [ Dictionary::Language.find_by_id(type.to_sym).new.name.capitalize, type ]
+    end
+  end
 end
