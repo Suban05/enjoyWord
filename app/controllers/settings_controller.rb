@@ -2,11 +2,11 @@ class SettingsController < ApplicationController
   before_action :authenticate_user!
 
   def new
-    @user = Current.user
+    @user = current_user
   end
 
   def create
-    user = Current.user
+    user = current_user
     if user.update_columns(settings_params.to_h)
       redirect_to root_path
     else
