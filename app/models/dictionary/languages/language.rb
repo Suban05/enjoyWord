@@ -28,6 +28,14 @@ module Dictionary::Languages
       @external_dictionary.find(word.content)
     end
 
+    def word_of_day
+      begin
+        @external_dictionary.word_of_day
+      rescue
+        {}
+      end
+    end
+
     def name
       ""
     end
