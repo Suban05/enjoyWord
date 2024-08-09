@@ -32,7 +32,7 @@ module Dictionary::Languages
       begin
         @external_dictionary.word_of_day
       rescue
-        {}
+        { sound: '', transcription: '', word: '' }
       end
     end
 
