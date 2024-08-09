@@ -13,7 +13,7 @@ class SettingsControllerTest < ActionDispatch::IntegrationTest
 
   test "changes user fields" do
     log_in_as(@user)
-    assert_equal nil, @user.favourite_language
+    assert_nil @user.favourite_language
     post settings_path params: { email: @user.email, name: @user.name, favourite_language: 'spanish' }
     assert_redirected_to root_path
     @user.reload
