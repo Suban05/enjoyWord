@@ -20,3 +20,4 @@ jim:
   name: Jim
   email: jim@email.com
   password_digest: <%= BCrypt::Password.create('password') %>
+  favourite_language: 'english'
