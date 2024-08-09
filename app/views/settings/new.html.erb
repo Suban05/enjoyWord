@@ -13,7 +13,7 @@
   <div class="my-5">
     <%= form.label :favourite_language, class: "block mb-2 text-gray-900 dark:text-white" %>
     <%= form.select :favourite_language,
-        Dictionary::Languages::Language.available.keys.map { |type| [ Dictionary::Language.find_by_id(type.to_sym).new.name.capitalize, type ] },
+        languages_display,
         { include_blank: true, selected: @user.favourite_language },
         class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full"
     %>
