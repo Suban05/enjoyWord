@@ -1,23 +1,23 @@
 <h1 class="font-bold text-4xl mb-4"><%= t('home') %></h1>
 
 <%= render 'pages/home/table',
-table: @popular_dictionaries,
-title: t('pages.home.popular_dictionaries'),
-partial_row_path: 'pages/home/popular_dictionaries/row',
-columns: [t('dictionary.title'), t('dictionary.words_count'), t('dictionary.updated_at')]
+  table: @popular_dictionaries,
+  title: t('pages.home.popular_dictionaries'),
+  partial_row_path: 'pages/home/popular_dictionaries/row',
+  columns: [t('dictionary.title'), t('dictionary.words_count'), t('dictionary.updated_at')]
 %>
 <div class="mb-4"></div>
-<%= render 'pages/home/table',
-table: @last_words,
-title: t('pages.home.last_added_words'),
-partial_row_path: 'pages/home/last_added_words/row',
-columns: [t('word.title'), t('dictionary.title'), t('created')],
-more_detailed_path: dictionaries_path,
-more_detailed_title: t('pages.home.all_dictionaries')
+  <%= render 'pages/home/table',
+  table: @last_words,
+  title: t('pages.home.last_added_words'),
+  partial_row_path: 'pages/home/last_added_words/row',
+  columns: [t('word.title'), t('dictionary.title'), t('created')],
+  more_detailed_path: dictionaries_path,
+  more_detailed_title: t('pages.home.all_dictionaries')
 %>
 
 <% unless @pronunciation_data[:word].empty? %>
   <div class="mb-4"></div>
-  <h1 class="font-bold text-4xl mb-4"><%= 'Word of the day' %></h1>
+  <h1 class="font-bold text-4xl mb-4"><%= t('pages.home.word_of_day') %></h1>
   <%= render 'words/show_word', word: @word_of_day, pronunciation_data: @pronunciation_data %>
 <% end %>
